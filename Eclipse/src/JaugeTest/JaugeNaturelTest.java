@@ -1,40 +1,58 @@
 package JaugeTest;
-//import org.junit.Before;
-import junit.framework.* ;
 
-public class JaugeNaturelTest extends TestCase {
+import static org.junit.Assert.*;
 
-	public TestResult run() {
-	     System.out.print("Test de JaugeNaturel:");
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
 
-	     System.out.print(".");
-	     testDansIntervalle();
+public class JaugeNaturelTest {
 
-	      System.out.print(".");
-	      testInferieurIntervalle();
-
-	     System.out.println("OK");
-		return null;
-	  }
+	JaugeNaturel jauge;
 	
-
-
-	public void testDansIntervalle(){
-		
-		try {
-			testVert();
-		} catch (Exception e) {
-			System.out.println("testVert à return true .... erreur");
-		}
-	}
-	
-	public void testVert() throws Exception {
-		JaugeNaturel maJauge = new JaugeNaturel(100,200,300);
-		assertTrue("le test jauge vert echoue ", maJauge.estVert());
+	@Before
+	public void setUp() throws Exception {
+		jauge = new JaugeNaturel(10,20,30);
 	}
 
-	public void testInferieurIntervalle() {
-		// TODO Auto-generated method stub
-		
+	@After
+	public void tearDown() throws Exception {
+		jauge = null;
 	}
+
+	@Test
+	public void testJaugeNaturel() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEstRouge() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEstVert() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testEstBleu() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testIncrementer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDecrementer() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testToString() {
+		fail("Not yet implemented");
+	}
+
 }
