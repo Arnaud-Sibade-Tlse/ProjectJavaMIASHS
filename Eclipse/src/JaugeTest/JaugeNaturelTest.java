@@ -60,4 +60,5 @@ public class JaugeNaturelTest {
 		assertTrue("Jauge toString",monToString.equals(jauge.toString()));
 	}
 
+	//test
 }
