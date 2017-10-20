@@ -12,7 +12,7 @@ public class JaugeNaturelTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		jauge = new JaugeNaturel(10,20,30);
+		jauge = new JaugeNaturel(10,20,11);
 	}
 
 	@After
@@ -22,37 +22,42 @@ public class JaugeNaturelTest {
 
 	@Test
 	public void testJaugeNaturel() {
-		fail("Not yet implemented");
+		assertNotNull("Jauge bien crée",jauge);
 	}
 
 	@Test
 	public void testEstRouge() {
-		fail("Not yet implemented");
+		assertTrue("Jauge rouge",jauge.estRouge());
 	}
 
 	@Test
 	public void testEstVert() {
-		fail("Not yet implemented");
+		assertTrue("Jauge verte",jauge.estVert());
 	}
 
 	@Test
 	public void testEstBleu() {
-		fail("Not yet implemented");
+		assertTrue("Jauge bleu",jauge.estBleu());
 	}
 
 	@Test
 	public void testIncrementer() {
-		fail("Not yet implemented");
+		long currentVal = jauge.getValeur();
+		jauge.incrementer();
+		assertTrue("Jauge incrémentée",jauge.getValeur() == currentVal + 1 );
 	}
 
 	@Test
 	public void testDecrementer() {
-		fail("Not yet implemented");
+		long currentVal = jauge.getValeur();
+		jauge.decrementer();
+		assertTrue("Jauge decrémentée",jauge.getValeur() == currentVal - 1 );
 	}
 
 	@Test
 	public void testToString() {
-		fail("Not yet implemented");
+		String monToString = "<"+jauge.getValeur()+" ["+jauge.getMin()+"," + jauge.getMax() + "]>";
+		assertTrue("Jauge toString",monToString.equals(jauge.toString()));
 	}
 
 }

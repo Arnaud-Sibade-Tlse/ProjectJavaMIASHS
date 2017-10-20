@@ -85,6 +85,7 @@ public class JaugeNaturel {
    * L'état peut devenir inférieur à la vigieMin.
    */
   public void decrementer() {
+	  valeur--;
   }
 
 
@@ -105,4 +106,8 @@ public class JaugeNaturel {
   public String toString() {
     return "<" + valeur + " [" + min + "," + max + "]>";
   }
+  
+  public long getValeur(){return this.valeur;}
+  public long getMin(){return this.min;}
+  public long getMax(){return this.max;}
 }
