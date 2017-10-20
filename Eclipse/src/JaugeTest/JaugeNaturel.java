@@ -1,13 +1,4 @@
-/*
- * Commentaire de Arnaud
- */
-
 package JaugeTest;
-
-/*
- * 
- * CECI EST UN COMMENTAIRE DE GUILHEM
- */
 
 
 /**
