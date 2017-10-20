@@ -1,5 +1,11 @@
 package JaugeTest;
 
+/*
+ * 
+ * CECI EST UN COMMENTAIRE DE GUILHEM
+ */
+
+
 /**
  * Réalisation d'une Jauge avec des entiers naturels.
  * <p>
