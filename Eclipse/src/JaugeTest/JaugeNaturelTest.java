@@ -22,7 +22,7 @@ public class JaugeNaturelTest {
 
 	@Test
 	public void testJaugeNaturel() {
-		assertNotNull("Jauge bien crée",jauge);
+		assertNotNull("Jauge bien cree",jauge);
 	}
 
 	@Test
@@ -44,14 +44,14 @@ public class JaugeNaturelTest {
 	public void testIncrementer() {
 		long currentVal = jauge.getValeur();
 		jauge.incrementer();
-		assertTrue("Jauge incrémentée",jauge.getValeur() == currentVal + 1 );
+		assertTrue("Jauge incrementee",jauge.getValeur() == currentVal + 1 );
 	}
 
 	@Test
 	public void testDecrementer() {
 		long currentVal = jauge.getValeur();
 		jauge.decrementer();
-		assertTrue("Jauge decrémentée",jauge.getValeur() == currentVal - 1 );
+		assertTrue("Jauge decrementee",jauge.getValeur() == currentVal - 1 );
 	}
 
 	@Test
