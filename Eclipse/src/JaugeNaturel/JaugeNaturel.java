@@ -110,4 +110,5 @@ public class JaugeNaturel {
   public long getValeur(){return this.valeur;}
   public long getMin(){return this.min;}
   public long getMax(){return this.max;}
+  
 }

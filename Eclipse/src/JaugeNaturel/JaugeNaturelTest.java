@@ -87,8 +87,8 @@ public class JaugeNaturelTest {
 		JaugeNaturel maJauge = new JaugeNaturel(10,20,8);
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
-		JaugeNaturel maJauge2 = new JaugeNaturel(10,20,10);
-		assertTrue("val = Min < Max",maJauge2.getValeur() == maJauge2.getMin() && maJauge2.getMin() < maJauge2.getMax());
+		maJauge = new JaugeNaturel(10,20,10);
+		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 	}
 	
 	@Test
@@ -103,8 +103,8 @@ public class JaugeNaturelTest {
 		JaugeNaturel maJauge = new JaugeNaturel(10,10,10);
 		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 		
-		JaugeNaturel maJauge2 = new JaugeNaturel(10,10,11);
-		assertTrue("val > Min == Max",maJauge2.getValeur() > maJauge2.getMin() && maJauge2.getMin() == maJauge2.getMax());
+		maJauge = new JaugeNaturel(10,10,11);
+		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 	}
 	
 	@Test
@@ -112,7 +112,7 @@ public class JaugeNaturelTest {
 		JaugeNaturel maJauge = new JaugeNaturel(10,20,22);
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
-		JaugeNaturel maJauge2 = new JaugeNaturel(10,20,20);
-		assertTrue("Min < Max = val",maJauge2.getValeur() == maJauge2.getMax() && maJauge2.getMin() < maJauge2.getMax());
+		maJauge = new JaugeNaturel(10,20,20);
+		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 	}
 }
