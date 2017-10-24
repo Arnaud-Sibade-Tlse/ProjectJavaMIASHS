@@ -1,4 +1,4 @@
-package JaugeTest;
+package JaugeNaturel;
 
 import static org.junit.Assert.*;
 
@@ -12,7 +12,7 @@ public class JaugeNaturelTest {
 	
 	@Before
 	public void setUp() throws Exception {
-		jauge = new JaugeNaturel(10,20,11);
+		jauge = new JaugeNaturel(10,20,15);
 	}
 
 	@After
@@ -65,6 +65,11 @@ public class JaugeNaturelTest {
 		assertTrue("est Vert",jauge.estVert());
 		assertTrue("est pas Rouge",jauge.estRouge());
 		assertTrue("est pas Bleu",jauge.estBleu());
+	}
+	
+	@Test
+	public void testDeplacement(){
+		
 	}
 	
 }
