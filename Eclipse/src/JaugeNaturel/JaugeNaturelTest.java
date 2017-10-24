@@ -63,8 +63,8 @@ public class JaugeNaturelTest {
 	@Test
 	public void testDansIntervalle(){
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 	}
 	
 	@Test
@@ -73,13 +73,13 @@ public class JaugeNaturelTest {
 		
 		maJauge.incrementer();
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 		
 		maJauge.decrementer();
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 	}
 	
 	@Test

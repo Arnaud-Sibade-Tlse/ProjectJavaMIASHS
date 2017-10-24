@@ -80,6 +80,22 @@ public class EtatPassagerChaine {
    */
   @Override
   public String toString() {
-    return "<" + monEtat + ">";
+	  String etat = "";
+	  
+	  switch (this.monEtat)
+	  {
+	    case ASSIS:
+	    	etat = "assis";
+	      break;   
+	    case DEBOUT:
+	    	etat = "debout";
+	      break;  
+	    case DEHORS:
+	    	etat = "dehors";
+	      break;       
+	    default:
+	    	etat = "null";            
+	  }
+    return "<" + etat + ">";
   }
 }
