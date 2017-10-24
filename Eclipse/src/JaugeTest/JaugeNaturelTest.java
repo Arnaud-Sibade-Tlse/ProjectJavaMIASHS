@@ -59,6 +59,12 @@ public class JaugeNaturelTest {
 		String monToString = "<"+jauge.getValeur()+" ["+jauge.getMin()+"," + jauge.getMax() + "]>";
 		assertTrue("Jauge toString",monToString.equals(jauge.toString()));
 	}
-
-	//test
+	
+	@Test
+	public void testDansIntervalle(){
+		assertTrue("est Vert",jauge.estVert());
+		assertTrue("est pas Rouge",jauge.estRouge());
+		assertTrue("est pas Bleu",jauge.estBleu());
+	}
+	
 }
