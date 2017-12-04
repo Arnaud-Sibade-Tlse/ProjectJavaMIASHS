@@ -29,7 +29,7 @@ public class EtatPassagerMonterTest {
 	public void testEstExterieur() {
 		EtatPassagerMonter monPassager = new EtatPassagerMonter(Etat.DEHORS);
 		assertFalse("N'est pas Assis",monPassager.estAssis());
-		assertTrue("Est Exterieur",monPassager.estExterieur());
+		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
 		assertFalse("N'est pas Debout",monPassager.estDebout());
 	}
 
