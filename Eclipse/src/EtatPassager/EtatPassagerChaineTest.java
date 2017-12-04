@@ -12,25 +12,19 @@ public class EtatPassagerChaineTest {
 	@Test
 	public void testEstAssis() {
 		EtatPassagerChaine monPassager = new EtatPassagerChaine(Etat.ASSIS);
-		assertTrue("Est Assis",monPassager.estAssis());
-		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
-		assertFalse("N'est pas Debout",monPassager.estDebout());
+		assertEquals("<assis>",monPassager.toString());
 	}
 
 	@Test
 	public void testEstDebout() {
 		EtatPassagerChaine monPassager = new EtatPassagerChaine(Etat.DEBOUT);
-		assertFalse("N'est pas Assis",monPassager.estAssis());
-		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
-		assertTrue("Est Debout",monPassager.estDebout());
+		assertEquals("<debout>",monPassager.toString());
 	}
 	
 	@Test
 	public void testEstExterieur() {
 		EtatPassagerChaine monPassager = new EtatPassagerChaine(Etat.DEHORS);
-		assertFalse("N'est pas Assis",monPassager.estAssis());
-		assertTrue("Est Exterieur",monPassager.estExterieur());
-		assertFalse("N'est pas Debout",monPassager.estDebout());
+		assertEquals("<dehors>",monPassager.toString());
 	}
 
 	@Test

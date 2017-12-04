@@ -63,7 +63,20 @@ public class EtatPassagerChaine {
    * @return vrai si instanciation avec ASSIS ou DEBOUT.
    */
   public boolean estInterieur() {
-    return monEtat == Etat.ASSIS || monEtat == Etat.DEBOUT;
+	  boolean interieur = false;
+	  switch (this.monEtat)
+	  {
+	    case ASSIS:
+	    	interieur = true;
+	      break;   
+	    case DEBOUT:
+	    	interieur = true;
+	      break;  
+	    case DEHORS:
+	    	interieur = false;
+	      break;           
+	  }
+	  return interieur;
   }
 
 
