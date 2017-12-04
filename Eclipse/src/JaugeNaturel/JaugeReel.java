@@ -36,10 +36,15 @@ public class JaugeReel {
     valeur = JN.getValeur()/1000;
     min = JN.getMin()/1000;
     max = JN.getMax()/1000;
-    /* Le constructeur d'une classe permet d'initialiser l'etat de l'instance creee.
-     * Son nom correspond toujours au nom de la classe. Il n'y a pas de type de retour.
-     */
+
   }
+  
+  public JaugeReel(float vigieMin, float vigieMax, float depart) {
+	    valeur = depart;
+	    min = vigieMin;
+	    max = vigieMax;
+	   
+	  }
 
 
   /**
@@ -77,7 +82,7 @@ public class JaugeReel {
    * L'état peut devenir supérieur à vigieMax.
    */
   public void incrementer() {
-    valeur++;
+    valeur+=(float)0.001;
   }
 
   /**
@@ -85,7 +90,7 @@ public class JaugeReel {
    * L'état peut devenir inférieur à la vigieMin.
    */
   public void decrementer() {
-	  valeur--;
+	  valeur=(float) (valeur-0.001);
   }
 
 

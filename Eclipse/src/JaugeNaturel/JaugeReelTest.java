@@ -9,11 +9,10 @@ import org.junit.Test;
 public class JaugeReelTest {
 
 	JaugeReel jauge;
-	
+	 
 	@Before
 	public void setUp() throws Exception {
-		JaugeNaturel jaugeN = new JaugeNaturel(10,20,15);
-		jauge = new JaugeReel(jaugeN);
+		jauge = new JaugeReel((float)10.5 , (float)20.5 , (float)15.5);
 	}
 
 	@After
@@ -43,16 +42,16 @@ public class JaugeReelTest {
 
 	@Test
 	public void testIncrementer() {
-		float currentVal = jauge.getValeur();
+		float currentVal = (float)jauge.getValeur();
 		jauge.incrementer();
-		assertTrue("Jauge incrementee",jauge.getValeur() == currentVal + 1 );
+		assertTrue("Jauge incrementee",(float)jauge.getValeur() == (float)currentVal + (float)0.001 );
 	}
 
 	@Test
 	public void testDecrementer() {
-		float currentVal = jauge.getValeur();
+		float currentVal = (float)jauge.getValeur();
 		jauge.decrementer();
-		assertTrue("Jauge decrementee",jauge.getValeur() == currentVal - 1 );
+		assertTrue("Jauge decrementee",(float)jauge.getValeur() == (float)currentVal - (float)0.001 );
 	}
 
 	@Test
@@ -86,42 +85,35 @@ public class JaugeReelTest {
 	
 	@Test
 	public void testInferieurIntervalle(){
-		JaugeNaturel jaugeN = new JaugeNaturel(10,20,8);
-		JaugeReel maJauge = new JaugeReel(jaugeN);
+		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)8);
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
-		jaugeN = new JaugeNaturel(10,20,10);
-		maJauge = new JaugeReel(jaugeN);
+		maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)10.5);
 		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 	}
 	
 	@Test
 	public void testLimiteVigieMaxInferieurVigieMin(){
-		JaugeNaturel jaugeN = new JaugeNaturel(20,10,10);
-		JaugeReel maJauge = new JaugeReel(jaugeN);
+		JaugeReel maJauge = new JaugeReel((float)20 , (float)10 , (float)10);
 		assertTrue("Max : 10/1000",maJauge.getMax() == 10);
 		assertTrue("Min : 20/1000",maJauge.getMin() == 20);
 	}
 	
 	@Test
 	public void testMaxEgaleMin(){
-		JaugeNaturel jaugeN = new JaugeNaturel(10,10,10);
-		JaugeReel maJauge = new JaugeReel(jaugeN);
+		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)10.5 , (float)10.5);
 		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 		
-		jaugeN = new JaugeNaturel(10,10,11);
-		maJauge = new JaugeReel(jaugeN);
+		maJauge = new JaugeReel((float)10.5 , (float)10.5 , (float)11.5);
 		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 	}
 	
 	@Test
 	public void testSuperieurIntervalle(){
-		JaugeNaturel jaugeN = new JaugeNaturel(10,20,22);
-		JaugeReel maJauge = new JaugeReel(jaugeN);
+		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)22.5);
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
-		jaugeN = new JaugeNaturel(10,20,20);
-		maJauge = new JaugeReel(jaugeN);
+		maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)20.5);
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 	}
 }
