@@ -6,13 +6,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-public class JaugeReelTest {
+public class JaugeNegatifTest {
 
-	JaugeReel jauge;
-	 
+	JaugeNaturel jauge;
+	
 	@Before
 	public void setUp() throws Exception {
-		jauge = new JaugeReel((float)10.5 , (float)20.5 , (float)15.5);
+		jauge = new JaugeNaturel(-20,-10,-12);
 	}
 
 	@After
@@ -42,16 +42,16 @@ public class JaugeReelTest {
 
 	@Test
 	public void testIncrementer() {
-		float currentVal = (float)jauge.getValeur();
+		long currentVal = jauge.getValeur();
 		jauge.incrementer();
-		assertTrue("Jauge incrementee",(float)jauge.getValeur() == (float)currentVal + (float)0.001 );
+		assertTrue("Jauge incrementee",jauge.getValeur() == currentVal + 1 );
 	}
 
 	@Test
 	public void testDecrementer() {
-		float currentVal = (float)jauge.getValeur();
+		long currentVal = jauge.getValeur();
 		jauge.decrementer();
-		assertTrue("Jauge decrementee",(float)jauge.getValeur() == (float)currentVal - (float)0.001 );
+		assertTrue("Jauge decrementee",jauge.getValeur() == currentVal - 1 );
 	}
 
 	@Test
@@ -63,57 +63,56 @@ public class JaugeReelTest {
 	@Test
 	public void testDansIntervalle(){
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 	}
 	
 	@Test
 	public void testDeplacement(){
-		JaugeNaturel jaugeN = new JaugeNaturel(10,20,15);
-		JaugeReel maJauge = new JaugeReel(jaugeN);
+		JaugeNaturel maJauge = new JaugeNaturel(-20,-10,-15);
 		
 		maJauge.incrementer();
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 		
 		maJauge.decrementer();
 		assertTrue("est Vert",jauge.estVert());
-		assertTrue("est pas Rouge",!jauge.estRouge());
-		assertTrue("est pas Bleu",!jauge.estBleu());
+		assertFalse("N'est pas Rouge",jauge.estRouge());
+		assertFalse("N'est pas Bleu",jauge.estBleu());
 	}
 	
 	@Test
 	public void testInferieurIntervalle(){
-		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)8);
+		JaugeNaturel maJauge = new JaugeNaturel(-20,-10,-22);
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
-		maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)10.5);
+		maJauge = new JaugeNaturel(-20,-10,-20);
 		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 	}
 	
 	@Test
 	public void testLimiteVigieMaxInferieurVigieMin(){
-		JaugeReel maJauge = new JaugeReel((float)20 , (float)10 , (float)10);
-		assertTrue("Max : 10/1000",maJauge.getMax() == 10);
-		assertTrue("Min : 20/1000",maJauge.getMin() == 20);
+		JaugeNaturel maJauge = new JaugeNaturel(-10,-20,-10);
+		assertTrue("Max : 10",maJauge.getMax() == -10);
+		assertTrue("Min : 20",maJauge.getMin() == -20);
 	}
 	
 	@Test
 	public void testMaxEgaleMin(){
-		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)10.5 , (float)10.5);
+		JaugeNaturel maJauge = new JaugeNaturel(-10,-10,-10);
 		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 		
-		maJauge = new JaugeReel((float)10.5 , (float)10.5 , (float)11.5);
+		maJauge = new JaugeNaturel(-10,-10,-11);
 		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 	}
 	
 	@Test
 	public void testSuperieurIntervalle(){
-		JaugeReel maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)22.5);
+		JaugeNaturel maJauge = new JaugeNaturel(-10,-20,-9);
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
-		maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)20.5);
+		maJauge = new JaugeNaturel(-20,-10,-10);
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 	}
 }
