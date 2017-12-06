@@ -6,23 +6,17 @@ package EtatPassager;
  *  
  * Les instances de cette classe sont des objets constants.
  **/
-public class EtatPassagerChaine {
-  /**
-   * Définit les trois états possible d'un passager dans un transport.
-   */
-  public enum Etat {/** passager assis à l'intérieur */  ASSIS, 
-                    /** passager debout à l'intérieur */ DEBOUT,  
-                    /** passager à l'extérieur */        DEHORS};
-
+public class EtatPassagerChaine implements IEtatPassager {
+	
   private final Etat monEtat;
 
   /**
    * Construit une instance en précisant l'état du passager.
    * 
-   * @param e  valeur de l'état.
+   * @param etat  valeur de l'état.
    */
-  public EtatPassagerChaine(Etat e) {
-    monEtat = e;
+  public EtatPassagerChaine(Etat etat) {
+    monEtat = etat;
 
     /* Le constructeur d'une classe permet d'initialiser l'etat de l'instance creee.
      * Son nom correspond toujours au nom de la classe. Il n'y a pas de type de retour.

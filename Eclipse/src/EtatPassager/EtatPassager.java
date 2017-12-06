@@ -6,13 +6,7 @@ package EtatPassager;
  *  
  * Les instances de cette classe sont des objets constants.
  **/
-public class EtatPassager {
-  /**
-   * Définit les trois états possible d'un passager dans un transport.
-   */
-  public enum Etat {/** passager assis à l'intérieur */  ASSIS, 
-                    /** passager debout à l'intérieur */ DEBOUT,  
-                    /** passager à l'extérieur */        DEHORS};
+public class EtatPassager implements IEtatPassager{
 
   private final Etat monEtat;
 
