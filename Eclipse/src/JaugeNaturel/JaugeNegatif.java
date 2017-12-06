@@ -19,7 +19,7 @@ package JaugeNaturel;
  * @author georgy
  * @since 2006-2007
  */
-public class JaugeNegatif {
+public class JaugeNegatif implements IJauge{
   private long valeur;
   private final long min;
   private final long max;
@@ -104,11 +104,11 @@ public class JaugeNegatif {
    */
   @Override
   public String toString() {
-    return "<" + valeur + " [" + min + "," + max + "]>";
+    return "<" + (float)valeur + " [" + (float)min + "," + (float)max + "]>";
   }
   
-  public long getValeur(){return this.valeur;}
-  public long getMin(){return this.min;}
-  public long getMax(){return this.max;}
+  public float getValeur(){return this.valeur;}
+  public float getMin(){return this.min;}
+  public float getMax(){return this.max;}
   
 }

@@ -19,7 +19,7 @@ package JaugeNaturel;
  * @author georgy
  * @since 2006-2007
  */
-public class JaugeReel {
+public class JaugeReel implements IJauge{
   private float valeur;
   private final float min;
   private final float max;
@@ -112,8 +112,11 @@ public class JaugeReel {
     return "<" + valeur + " [" + min + "," + max + "]>";
   }
   
+
   public float getValeur(){return this.valeur;}
+  
   public float getMin(){return this.min;}
+  
   public float getMax(){return this.max;}
   
 }

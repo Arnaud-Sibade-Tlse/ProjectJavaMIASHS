@@ -21,13 +21,13 @@ public class JaugeReelTest {
 	}
 
 	@Test
-	public void testJaugeNaturel() {
+	public void testJaugeReel() {
 		assertNotNull("Jauge bien cree",jauge);
 	}
 
 	@Test
 	public void testEstRouge() {
-		assertTrue("Jauge rouge",jauge.estRouge());
+		assertFalse("Jauge rouge",jauge.estRouge());
 	}
 
 	@Test
@@ -37,7 +37,7 @@ public class JaugeReelTest {
 
 	@Test
 	public void testEstBleu() {
-		assertTrue("Jauge bleu",jauge.estBleu());
+		assertFalse("Jauge bleu",jauge.estBleu());
 	}
 
 	@Test

@@ -27,7 +27,7 @@ public class JaugeNaturelTest {
 
 	@Test
 	public void testEstRouge() {
-		assertTrue("Jauge rouge",jauge.estRouge());
+		assertFalse("Jauge rouge",jauge.estRouge());
 	}
 
 	@Test
@@ -37,19 +37,19 @@ public class JaugeNaturelTest {
 
 	@Test
 	public void testEstBleu() {
-		assertTrue("Jauge bleu",jauge.estBleu());
+		assertFalse("Jauge bleu",jauge.estBleu());
 	}
 
 	@Test
 	public void testIncrementer() {
-		long currentVal = jauge.getValeur();
+		float currentVal = jauge.getValeur();
 		jauge.incrementer();
 		assertTrue("Jauge incrementee",jauge.getValeur() == currentVal + 1 );
 	}
 
 	@Test
 	public void testDecrementer() {
-		long currentVal = jauge.getValeur();
+		float currentVal = jauge.getValeur();
 		jauge.decrementer();
 		assertTrue("Jauge decrementee",jauge.getValeur() == currentVal - 1 );
 	}

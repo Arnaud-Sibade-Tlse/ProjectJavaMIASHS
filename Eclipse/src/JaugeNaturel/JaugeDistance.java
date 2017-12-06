@@ -19,7 +19,7 @@ package JaugeNaturel;
  * @author georgy
  * @since 2006-2007
  */
-public class JaugeDistance {
+public class JaugeDistance{
 
 private long toMin;
 private long toMax;
@@ -111,6 +111,9 @@ public long getToMax() { return toMax; }
   public String toString() {
     return "<" + toMin + " [0," + (toMin+toMax) + "]>";
   }
+
+
+
 
   
 }
