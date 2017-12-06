@@ -100,8 +100,8 @@ public class IEtatPassagerTest {
 		
 		monPassager = new EtatPassager(IEtatPassager.Etat.DEHORS);
 		assertFalse("N'est pas Interieur",monPassager.estInterieur());
-		monPassager = new EtatPassagerChaine("edhors");
-		assertFalse("Est Interieur",monPassager.estInterieur());
+		monPassager = new EtatPassagerChaine("dehors");
+		assertFalse("N'est pas Interieur",monPassager.estInterieur());
 	}
 
 }
