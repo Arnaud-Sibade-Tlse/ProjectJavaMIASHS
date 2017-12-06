@@ -5,24 +5,44 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class IEtatPassagerTest {
-
+	
 	@Test
-	public void testNew(){
-		IEtatPassager monPassager = new EtatPassagerChaine("not correct string");
-		assertTrue("Default : est dehors",monPassager.estExterieur());
+	public void testAssis(){
+		
+		IEtatPassager monPassager;
+		
 		monPassager = new EtatPassagerChaine("assis");
 		assertTrue("Assis",monPassager.estAssis());
-		monPassager = new EtatPassagerChaine("debout");
-		assertTrue("Debout",monPassager.estDebout());
-		monPassager = new EtatPassagerChaine("dehors");
-		assertTrue("Exterieur",monPassager.estExterieur());
 
 		monPassager = new EtatPassager(IEtatPassager.Etat.ASSIS);
 		assertTrue("Assis",monPassager.estAssis());
+
+	}
+	
+	@Test
+	public void testDebout(){
+		
+		IEtatPassager monPassager;
+		
+		monPassager = new EtatPassagerChaine("debout");
+		assertTrue("Assis",monPassager.estDebout());
+
 		monPassager = new EtatPassager(IEtatPassager.Etat.DEBOUT);
-		assertTrue("Debout",monPassager.estDebout());
+		assertTrue("Assis",monPassager.estDebout());
+		
+	}
+	
+	@Test
+	public void testDehors(){
+		
+		IEtatPassager monPassager;
+		
+		monPassager = new EtatPassagerChaine("dehors");
+		assertTrue("Assis",monPassager.estExterieur());
+
 		monPassager = new EtatPassager(IEtatPassager.Etat.DEHORS);
-		assertTrue("Exterieur",monPassager.estExterieur());
+		assertTrue("Assis",monPassager.estExterieur());
+		
 	}
 	
 	@Test
