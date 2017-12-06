@@ -178,19 +178,40 @@ IJauge jaugeNeg;
 	
 	@Test
 	public void testMaxEgaleMin(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,10,10);
+		IJauge maJauge = new JaugeNaturel(10,10,10);
 		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
-		
 		maJauge = new JaugeNaturel(10,10,11);
+		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
+		
+
+		maJauge = new JaugeReel(10,10,10);
+		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
+		maJauge = new JaugeReel(10,10,11);
+		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
+		
+
+		maJauge = new JaugeNegatif(-10,-10,-10);
+		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
+		maJauge = new JaugeNegatif(-10,-10,-8);
 		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 	}
 	
 	@Test
 	public void testSuperieurIntervalle(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,20,22);
+		IJauge maJauge = new JaugeNaturel(10,20,22);
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
-		
 		maJauge = new JaugeNaturel(10,20,20);
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+		
+		maJauge = new JaugeReel(10,20,22);
+		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+		maJauge = new JaugeReel(10,20,20);
+		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+		
+		maJauge = new JaugeNegatif(-20,-10,-8);
+		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+		maJauge = new JaugeNegatif(-20,-10,-10);
+		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+		
 	}
 }
