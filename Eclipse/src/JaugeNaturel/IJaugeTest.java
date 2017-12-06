@@ -170,7 +170,15 @@ IJauge jaugeNeg;
 	
 	@Test
 	public void testLimiteVigieMaxInferieurVigieMin(){
-		JaugeNaturel maJauge = new JaugeNaturel(20,10,10);
+		IJauge maJauge = new JaugeNaturel(20,10,10);
+		assertTrue("Max : 10",maJauge.getMax() == 10);
+		assertTrue("Min : 20",maJauge.getMin() == 20);
+		
+		maJauge = new JaugeReel(20,10,10);
+		assertTrue("Max : 10",maJauge.getMax() == 10);
+		assertTrue("Min : 20",maJauge.getMin() == 20);
+		
+		maJauge = new JaugeNegatif(-10,-20,-15);
 		assertTrue("Max : 10",maJauge.getMax() == 10);
 		assertTrue("Min : 20",maJauge.getMin() == 20);
 	}
