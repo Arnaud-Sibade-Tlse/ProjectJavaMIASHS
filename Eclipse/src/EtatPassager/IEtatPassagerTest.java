@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 
-public class EtatPassagerTest2 {
+public class IEtatPassagerTest {
 
 
 	@Test
