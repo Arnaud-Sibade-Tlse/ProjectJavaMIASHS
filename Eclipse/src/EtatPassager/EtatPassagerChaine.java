@@ -8,15 +8,20 @@ package EtatPassager;
  **/
 public class EtatPassagerChaine implements IEtatPassager {
 	
-  private final Etat monEtat;
+  private final String monEtat;
 
   /**
    * Construit une instance en précisant l'état du passager.
    * 
    * @param etat  valeur de l'état.
    */
-  public EtatPassagerChaine(Etat etat) {
-    monEtat = etat;
+  public EtatPassagerChaine(String etat) {
+	  if(etat.equals("dehors")||etat.equals("assis")||etat.equals("debout")){
+		    monEtat = etat;
+	  }
+	  else{
+		  monEtat = "dehors";
+	  }
 
     /* Le constructeur d'une classe permet d'initialiser l'etat de l'instance creee.
      * Son nom correspond toujours au nom de la classe. Il n'y a pas de type de retour.
@@ -30,7 +35,7 @@ public class EtatPassagerChaine implements IEtatPassager {
    * @return vrai si instanciation avec DEHORS;
    */
   public boolean estExterieur() {
-    return monEtat == Etat.DEHORS;
+    return monEtat.equals("dehors");
   }
 
   /**
@@ -39,7 +44,7 @@ public class EtatPassagerChaine implements IEtatPassager {
    * @return vrai si instanciation avec ASSIS;
    */
   public boolean estAssis() {
-    return monEtat == Etat.ASSIS;
+	    return monEtat.equals("assis");
   }
 
   /**
@@ -48,7 +53,7 @@ public class EtatPassagerChaine implements IEtatPassager {
    * @return vrai si instanciation avec DEBOUT;
    */
   public boolean estDebout() {
-    return monEtat == Etat.DEBOUT;
+	    return monEtat.equals("debout");
   }
 
   /**
@@ -60,13 +65,13 @@ public class EtatPassagerChaine implements IEtatPassager {
 	  boolean interieur = false;
 	  switch (this.monEtat)
 	  {
-	    case ASSIS:
+	    case "assis":
 	    	interieur = true;
 	      break;   
-	    case DEBOUT:
+	    case "debout":
 	    	interieur = true;
 	      break;  
-	    case DEHORS:
+	    case "dehors":
 	    	interieur = false;
 	      break;           
 	  }
@@ -87,22 +92,6 @@ public class EtatPassagerChaine implements IEtatPassager {
    */
   @Override
   public String toString() {
-	  String etat = "";
-	  
-	  switch (this.monEtat)
-	  {
-	    case ASSIS:
-	    	etat = "assis";
-	      break;   
-	    case DEBOUT:
-	    	etat = "debout";
-	      break;  
-	    case DEHORS:
-	    	etat = "dehors";
-	      break;       
-	    default:
-	    	etat = "null";            
-	  }
-    return "<" + etat + ">";
+    return "<" + monEtat + ">";
   }
 }

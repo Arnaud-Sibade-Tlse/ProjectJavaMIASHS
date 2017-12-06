@@ -4,10 +4,27 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-
 public class IEtatPassagerTest {
 
+	@Test
+	public void testNew(){
+		IEtatPassager monPassager = new EtatPassagerChaine("not correct string");
+		assertTrue("Default : est dehors",monPassager.estExterieur());
+		monPassager = new EtatPassagerChaine("assis");
+		assertTrue("Assis",monPassager.estAssis());
+		monPassager = new EtatPassagerChaine("debout");
+		assertTrue("Debout",monPassager.estDebout());
+		monPassager = new EtatPassagerChaine("dehors");
+		assertTrue("Exterieur",monPassager.estExterieur());
 
+		monPassager = new EtatPassager(IEtatPassager.Etat.ASSIS);
+		assertTrue("Assis",monPassager.estAssis());
+		monPassager = new EtatPassager(IEtatPassager.Etat.DEBOUT);
+		assertTrue("Debout",monPassager.estDebout());
+		monPassager = new EtatPassager(IEtatPassager.Etat.DEHORS);
+		assertTrue("Exterieur",monPassager.estExterieur());
+	}
+	
 	@Test
 	public void testEstAssis() {
 		IEtatPassager monPassager = new EtatPassager(IEtatPassager.Etat.ASSIS);
@@ -15,7 +32,7 @@ public class IEtatPassagerTest {
 		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
 		assertFalse("N'est pas Debout",monPassager.estDebout());
 
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.ASSIS);
+		monPassager = new EtatPassagerChaine("assis");
 		assertTrue("Est Assis",monPassager.estAssis());
 		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
 		assertFalse("N'est pas Debout",monPassager.estDebout());
@@ -29,7 +46,7 @@ public class IEtatPassagerTest {
 		assertTrue("Est Debout",monPassager.estDebout());
 		
 
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.DEBOUT);
+		monPassager = new EtatPassagerChaine("debout");
 		assertFalse("Est Assis",monPassager.estAssis());
 		assertFalse("N'est pas Exterieur",monPassager.estExterieur());
 		assertTrue("N'est pas Debout",monPassager.estDebout());
@@ -43,7 +60,7 @@ public class IEtatPassagerTest {
 		assertFalse("N'est pas Debout",monPassager.estDebout());
 		
 
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.DEHORS);
+		monPassager = new EtatPassagerChaine("dehors");
 		assertFalse("Est Assis",monPassager.estAssis());
 		assertTrue("N'est pas Exterieur",monPassager.estExterieur());
 		assertFalse("N'est pas Debout",monPassager.estDebout());
@@ -53,17 +70,17 @@ public class IEtatPassagerTest {
 	public void testEstInterieur() {
 		IEtatPassager monPassager = new EtatPassager(IEtatPassager.Etat.ASSIS);
 		assertTrue("Est Interieur",monPassager.estInterieur());
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.ASSIS);
+		monPassager = new EtatPassagerChaine("assis");
 		assertTrue("Est Interieur",monPassager.estInterieur());
 		
 		monPassager = new EtatPassager(IEtatPassager.Etat.DEBOUT);
 		assertTrue("Est Interieur",monPassager.estInterieur());
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.DEBOUT);
+		monPassager = new EtatPassagerChaine("debout");
 		assertTrue("Est Interieur",monPassager.estInterieur());
 		
 		monPassager = new EtatPassager(IEtatPassager.Etat.DEHORS);
 		assertFalse("N'est pas Interieur",monPassager.estInterieur());
-		monPassager = new EtatPassagerChaine(IEtatPassager.Etat.DEHORS);
+		monPassager = new EtatPassagerChaine("edhors");
 		assertFalse("Est Interieur",monPassager.estInterieur());
 	}
 
