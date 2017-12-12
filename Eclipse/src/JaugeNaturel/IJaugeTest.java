@@ -179,8 +179,8 @@ IJauge jaugeNeg;
 		assertTrue("Min : 20",maJauge.getMin() == 20);
 		
 		maJauge = new JaugeNegatif(-10,-20,-15);
-		assertTrue("Max : 10",maJauge.getMax() == 10);
-		assertTrue("Min : 20",maJauge.getMin() == 20);
+		assertTrue("Max : 10",maJauge.getMax() == -10);
+		assertTrue("Min : 20",maJauge.getMin() == -20);
 	}
 	
 	
