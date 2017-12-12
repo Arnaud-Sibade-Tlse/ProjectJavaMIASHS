@@ -32,10 +32,10 @@ public class JaugeNaturel implements IJauge {
    * @param vigieMax valeur maximale de l'intervalle de vigie.
    * @param depart   valeur initiale de la jauge.
    */
-  public JaugeNaturel(long vigieMin, long vigieMax, long depart) throws JaugeException{
-    valeur = depart;
-    min = vigieMin;
-    max = vigieMax;
+  public JaugeNaturel(float vigieMin, float vigieMax, float depart) /*throws JaugeException*/{
+    valeur = (long)depart;
+    min = (long)vigieMin;
+    max = (long)vigieMax;
     /* Le constructeur d'une classe permet d'initialiser l'etat de l'instance creee.
      * Son nom correspond toujours au nom de la classe. Il n'y a pas de type de retour.
      */

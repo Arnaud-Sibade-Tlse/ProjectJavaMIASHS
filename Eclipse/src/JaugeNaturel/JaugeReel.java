@@ -82,7 +82,7 @@ public class JaugeReel implements IJauge{
    * L'état peut devenir supérieur à vigieMax.
    */
   public void incrementer() {
-    valeur+=(float)0.001;
+    valeur+=(float)1;
   }
 
   /**
@@ -90,7 +90,7 @@ public class JaugeReel implements IJauge{
    * L'état peut devenir inférieur à la vigieMin.
    */
   public void decrementer() {
-	  valeur=(float) (valeur-0.001);
+	  valeur=(float) (valeur-1);
   }
 
 
