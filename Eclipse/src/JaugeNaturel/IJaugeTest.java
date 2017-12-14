@@ -16,7 +16,7 @@ IJauge jauge;
 	public IJauge creerJauge(float a , float b, float c){
 		try{
 			return new JaugeReel(a,b,c);
-		}catch(JaugeException e){
+		}catch(IllegalArgumentException e){
 			
 		}
 		return null;
@@ -136,5 +136,14 @@ IJauge jauge;
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		maJauge =creerJauge(10,20,20);
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
+	}
+
+	@Test
+	public void testExceptionControlee(){
+		try {
+			throw new ClassNotFoundException("Attention") ;
+		} catch (ClassNotFoundException e) {
+			e.printStackTrace();
+		}
 	}
 }

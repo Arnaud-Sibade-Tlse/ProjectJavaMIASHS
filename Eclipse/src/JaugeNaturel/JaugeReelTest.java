@@ -93,14 +93,14 @@ public class JaugeReelTest {
 		JaugeReel maJauge = null;
 		try {
 			maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)8);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
 		try {
 			maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)10.5);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
@@ -143,14 +143,14 @@ public class JaugeReelTest {
 		JaugeReel maJauge = null;
 		try {
 			maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)22.5);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
 		try {
 			maJauge = new JaugeReel((float)10.5 , (float)20.5 , (float)20.5);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());

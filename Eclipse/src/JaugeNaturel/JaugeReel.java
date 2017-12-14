@@ -39,8 +39,8 @@ public class JaugeReel implements IJauge{
 
   }
   
-  public JaugeReel(float vigieMin, float vigieMax, float depart) throws JaugeException{
-	  if(vigieMin >= vigieMax){throw new JaugeException();}
+  public JaugeReel(float vigieMin, float vigieMax, float depart) throws IllegalArgumentException{
+	  if(vigieMin >= vigieMax){throw new IllegalArgumentException();}
 
 	  valeur = depart;
 	  min = vigieMin;

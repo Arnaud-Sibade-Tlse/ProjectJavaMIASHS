@@ -72,7 +72,7 @@ public class JaugeNegatifTest {
 		JaugeNegatif maJauge = null;
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-15);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		
@@ -92,14 +92,14 @@ public class JaugeNegatifTest {
 		JaugeNegatif maJauge = null;
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-22);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-20);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
@@ -110,7 +110,7 @@ public class JaugeNegatifTest {
 		JaugeNegatif maJauge = null;
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-10);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("Max : 10",maJauge.getMax() == -10);
@@ -141,14 +141,14 @@ public class JaugeNegatifTest {
 		JaugeNegatif maJauge = null;
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-9);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
 		try {
 			maJauge = new JaugeNegatif(-20,-10,-10);
-		} catch (JaugeException e) {
+		} catch (IllegalArgumentException e) {
 			e.printStackTrace();
 		}
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
