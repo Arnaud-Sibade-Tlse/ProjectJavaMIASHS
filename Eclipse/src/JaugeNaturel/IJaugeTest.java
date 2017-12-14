@@ -14,7 +14,12 @@ IJauge jauge;
 
 	
 	public IJauge creerJauge(float a , float b, float c){
-		return new JaugeReel(a,b,c);
+		try{
+			return new JaugeReel(a,b,c);
+		}catch(JaugeException e){
+			
+		}
+		return null;
 	}
 	
 	@Before
@@ -65,7 +70,7 @@ IJauge jauge;
 	public void testDecrementer() {
 		float currentVal = jauge.getValeur();
 		jauge.decrementer();
-		assertTrue("Jauge decrementee",(float)jauge.getValeur() == currentVal - (float)1 );
+		assertTrue("Jauge decrementee",(float)jauge.getValeur() == currentVal - 1 );
 	}
 
 	@Test

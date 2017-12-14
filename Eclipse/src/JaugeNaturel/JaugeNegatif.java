@@ -32,8 +32,9 @@ public class JaugeNegatif implements IJauge{
    * @param vigieMax valeur maximale de l'intervalle de vigie.
    * @param depart   valeur initiale de la jauge.
    */
-  public JaugeNegatif(float vigieMin, float vigieMax, float depart) /*throws JaugeException*/{
-    valeur = (long)depart;
+  public JaugeNegatif(float vigieMin, float vigieMax, float depart) throws JaugeException{
+    if(vigieMin >= vigieMax){throw new JaugeException();}
+	valeur = (long)depart;
     min = (long)vigieMin;
     max = (long)vigieMax;
     /* Le constructeur d'une classe permet d'initialiser l'etat de l'instance creee.
