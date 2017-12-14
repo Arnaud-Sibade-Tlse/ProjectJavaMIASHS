@@ -1,4 +1,6 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Passager;
+
+import TransportEnCommun.tec.Transport.Transport;
 
 /**
  * Cette interface définit le type manipulé par le programme principal.

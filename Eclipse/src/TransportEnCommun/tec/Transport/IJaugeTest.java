@@ -1,4 +1,4 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Transport;
 
 import static org.junit.Assert.*;
 

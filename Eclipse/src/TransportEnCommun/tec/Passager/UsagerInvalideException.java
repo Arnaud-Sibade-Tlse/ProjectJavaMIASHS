@@ -1,4 +1,6 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Passager;
+
+import TransportEnCommun.tec.Transport.Transport;
 
 /** 
  * Cette exception est levée pour indiquer qu'un usager n'a pas pu être pris en compte

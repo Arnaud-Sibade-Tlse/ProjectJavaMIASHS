@@ -1,4 +1,4 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Transport;
 
 /**
  * Cette interface définit un des types abstraits fixant les interactions

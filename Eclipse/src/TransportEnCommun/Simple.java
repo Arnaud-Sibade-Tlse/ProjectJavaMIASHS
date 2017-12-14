@@ -7,12 +7,11 @@
  * La classe (ou l'interface) peut etre designee simplement par son nom 
  * (ici Usager).
  */
-import TransportEnCommun.tec.Usager;
 import TransportEnCommun.tec.Transport;
-import TransportEnCommun.tec.UsagerInvalideException;
-
-import TransportEnCommun.tec.PassagerStandard;
-import TransportEnCommun.tec.Autobus;
+import TransportEnCommun.tec.Passager.PassagerStandard;
+import TransportEnCommun.tec.Passager.Usager;
+import TransportEnCommun.tec.Passager.UsagerInvalideException;
+import TransportEnCommun.tec.Transport.Autobus;
 
 /*
  * Exemple de programme principale avec trois PassagerStandard et un Autobus.

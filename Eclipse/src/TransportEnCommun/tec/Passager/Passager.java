@@ -1,5 +1,6 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Passager;
 
+import TransportEnCommun.tec.Transport.Bus;
 
 /**
  * Cette interface définit un des types abstraits fixant les interactions

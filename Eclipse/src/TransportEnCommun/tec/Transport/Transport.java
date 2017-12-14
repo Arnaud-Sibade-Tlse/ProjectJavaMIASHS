@@ -1,4 +1,6 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Transport;
+
+import TransportEnCommun.tec.Passager.UsagerInvalideException;
 
 /**
  * Cette interface définit le type manipule par le programme principal.

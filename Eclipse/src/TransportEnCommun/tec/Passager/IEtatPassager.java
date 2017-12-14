@@ -1,4 +1,4 @@
-package TransportEnCommun.tec;
+package TransportEnCommun.tec.Passager;
 
 public interface IEtatPassager {
 
