@@ -33,9 +33,12 @@ IJauge jauge;
 
 	}
 
-	private void testCreationNonValide ( ) {
+	@Test
+	private void testCreationNonValide (){
 		IJauge inverse = creerJauge ( 78 , 13 , 0 ) ;
+		assertNotNull("Jauge bien cree",inverse);
 		IJauge egale = creerJauge ( -45 , -45, -45);
+		assertNotNull("Jauge bien cree",egale);
 	}
 	
 	@Test

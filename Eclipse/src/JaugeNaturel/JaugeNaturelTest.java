@@ -69,7 +69,12 @@ public class JaugeNaturelTest {
 	
 	@Test
 	public void testDeplacement(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,20,15);
+		JaugeNaturel maJauge = null;
+		try {
+			maJauge = new JaugeNaturel(10,20,15);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		
 		maJauge.incrementer();
 		assertTrue("est Vert",jauge.estVert());
@@ -84,35 +89,68 @@ public class JaugeNaturelTest {
 	
 	@Test
 	public void testInferieurIntervalle(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,20,8);
+		JaugeNaturel maJauge = null;
+		try {
+			maJauge = new JaugeNaturel(10,20,8);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("val < Min < Max",maJauge.getValeur() < maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 		
-		maJauge = new JaugeNaturel(10,20,10);
+		try {
+			maJauge = new JaugeNaturel(10,20,10);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("val = Min < Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() < maJauge.getMax());
 	}
 	
 	@Test
 	public void testLimiteVigieMaxInferieurVigieMin(){
-		JaugeNaturel maJauge = new JaugeNaturel(20,10,10);
+		JaugeNaturel maJauge = null;
+		try {
+			maJauge = new JaugeNaturel(20,10,10);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("Max : 10",maJauge.getMax() == 10);
 		assertTrue("Min : 20",maJauge.getMin() == 20);
 	}
 	
 	@Test
 	public void testMaxEgaleMin(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,10,10);
+		JaugeNaturel maJauge = null;
+		try {
+			maJauge = new JaugeNaturel(10,10,10);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("val = Min = Max",maJauge.getValeur() == maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 		
-		maJauge = new JaugeNaturel(10,10,11);
+		try {
+			maJauge = new JaugeNaturel(10,10,11);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		assertTrue("val > Min == Max",maJauge.getValeur() > maJauge.getMin() && maJauge.getMin() == maJauge.getMax());
 	}
 	
 	@Test
 	public void testSuperieurIntervalle(){
-		JaugeNaturel maJauge = new JaugeNaturel(10,20,22);
+		JaugeNaturel maJauge = null;
+		try {
+			maJauge = new JaugeNaturel(10,20,22);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("Min < Max < val",maJauge.getValeur() > maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 		
-		maJauge = new JaugeNaturel(10,20,20);
+		try {
+			maJauge = new JaugeNaturel(10,20,20);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 		assertTrue("Min < Max = val",maJauge.getValeur() == maJauge.getMax() && maJauge.getMin() < maJauge.getMax());
 	}
 }

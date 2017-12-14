@@ -32,9 +32,10 @@ public class JaugeNaturel implements IJauge {
    * @param vigieMax valeur maximale de l'intervalle de vigie.
    * @param depart   valeur initiale de la jauge.
    */
-  public JaugeNaturel(float vigieMin, float vigieMax, float depart) throws JaugeException{
-	if(vigieMin >= vigieMax){throw new JaugeException();}
-
+  public JaugeNaturel(float vigieMin, float vigieMax, float depart) throws Exception{
+	if(vigieMin > vigieMax){throw new IllegalArgumentException();}
+	if(vigieMin == vigieMax && vigieMax == depart){throw new IllegalArgumentException();}
+	
 	valeur = (long)depart;
     min = (long)vigieMin;
     max = (long)vigieMax;
