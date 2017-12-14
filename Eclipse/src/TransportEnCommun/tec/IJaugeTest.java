@@ -1,4 +1,4 @@
-package JaugeNaturel;
+package TransportEnCommun.tec;
 
 import static org.junit.Assert.*;
 
@@ -17,12 +17,10 @@ IJauge jauge;
 	
 	public IJauge creerJauge(float a , float b, float c){
 		try{
-			return new JaugeNaturel(a,b,c);
+			return new JaugeReel(a,b,c);
 		}catch(IllegalArgumentException e){
 			
 		}
-
-		
 		return null;
 	}
 	

@@ -1,6 +1,5 @@
-package JaugeNaturel;
+package TransportEnCommun.tec;
 
-import TransportEnCommun.tec.IJauge;
 
 /**
  * Réalisation d'une Jauge avec des entiers naturels.
@@ -20,7 +19,7 @@ import TransportEnCommun.tec.IJauge;
  * @author georgy
  * @since 2006-2007
  */
-public class JaugeNegatif implements IJauge{
+public class JaugeNaturel implements IJauge {
   private long valeur;
   private final long min;
   private final long max;
@@ -33,8 +32,10 @@ public class JaugeNegatif implements IJauge{
    * @param vigieMax valeur maximale de l'intervalle de vigie.
    * @param depart   valeur initiale de la jauge.
    */
-  public JaugeNegatif(float vigieMin, float vigieMax, float depart) throws IllegalArgumentException{
-    if(vigieMin >= vigieMax){throw new IllegalArgumentException();}
+  public JaugeNaturel(float vigieMin, float vigieMax, float depart) throws IllegalArgumentException{
+	if(vigieMin > vigieMax){throw new IllegalArgumentException();}
+	if(vigieMin == vigieMax && vigieMax == depart){throw new IllegalArgumentException();}
+	
 	valeur = (long)depart;
     min = (long)vigieMin;
     max = (long)vigieMax;

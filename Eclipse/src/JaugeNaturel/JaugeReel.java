@@ -1,5 +1,6 @@
 package JaugeNaturel;
 
+import TransportEnCommun.tec.IJauge;
 
 /**
  * Réalisation d'une Jauge avec des entiers naturels.
