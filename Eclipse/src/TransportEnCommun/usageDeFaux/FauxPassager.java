@@ -1,4 +1,6 @@
+package TransportEnCommun.usageDeFaux;
 
+import TransportEnCommun.tec.Transport.*;
 
 public class FauxPassager { 
   static final byte DEHORS = 0;

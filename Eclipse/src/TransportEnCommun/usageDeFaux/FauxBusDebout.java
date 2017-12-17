@@ -1,4 +1,6 @@
-import TransportEnCommun.tec.Passager;
+package TransportEnCommun.usageDeFaux;
+
+import TransportEnCommun.tec.Passager.Passager;
 
 public class FauxBusDebout {
   String message = "???";

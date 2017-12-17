@@ -1,17 +1,13 @@
+package TransportEnCommun;
+
 /* Si aucun paquetage n'est defini, la classe appartient au paquetage anonyme.
    Le nom du repertoire n'est pas impose */
 
-/*
- * L'instruction import evite de specifier a chaque fois le nom
- * complet de la classe (par exemple tec.Usager). 
- * La classe (ou l'interface) peut etre designee simplement par son nom 
- * (ici Usager).
- */
-import TransportEnCommun.tec.Transport;
 import TransportEnCommun.tec.Passager.PassagerStandard;
 import TransportEnCommun.tec.Passager.Usager;
 import TransportEnCommun.tec.Passager.UsagerInvalideException;
 import TransportEnCommun.tec.Transport.Autobus;
+import TransportEnCommun.tec.Transport.*;
 
 /*
  * Exemple de programme principale avec trois PassagerStandard et un Autobus.

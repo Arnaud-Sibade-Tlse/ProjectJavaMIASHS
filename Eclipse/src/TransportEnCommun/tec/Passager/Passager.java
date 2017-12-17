@@ -22,7 +22,7 @@ import TransportEnCommun.tec.Transport.Bus;
  * <p>
  * Quand il arrive à son arrét de destination, un passager sort du bus.
  */
-interface Passager {
+public interface Passager extends Usager{
   /**
    * fournit le nom de l'usager.
    */

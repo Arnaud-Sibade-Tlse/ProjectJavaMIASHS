@@ -1,5 +1,5 @@
 package TransportEnCommun.tec.Transport;
-
+import TransportEnCommun.tec.Passager.*;
 /**
  * Cette interface définit un des types abstraits fixant les interactions
  * avec les passagers. 
@@ -17,7 +17,7 @@ package TransportEnCommun.tec.Transport;
  * Si la demande est acceptée, le bus déclenche les modificateurs 
  * de passager.
  */
-interface Bus {
+public interface Bus extends Transport{
 
   /**
    * vrai s'il existe des places assises.
