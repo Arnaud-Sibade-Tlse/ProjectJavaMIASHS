@@ -8,9 +8,11 @@ public class PassagerStandard implements Passager{
 	
 	private String nom;
 	private EtatPassager monEtat;
+	private int destination;
 	
-	public PassagerStandard(String nom){
+	public PassagerStandard(String nom, int d){
 		this.nom=nom;
+		this.destination=d;
 	}
 	
 	public void EtatPassager(EtatPassager assis) {
@@ -65,6 +67,14 @@ public class PassagerStandard implements Passager{
 	public void nouvelArret(Bus bus, int numeroArret) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	public int getDestination() {
+		return destination;
+	}
+
+	public void setDestination(int destination) {
+		this.destination = destination;
 	}
 
 }
