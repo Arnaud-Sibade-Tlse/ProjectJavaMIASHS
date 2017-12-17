@@ -7,10 +7,12 @@ public class Autobus implements Bus{
 	
 	private JaugeNaturel assis;
 	private JaugeNaturel debout;
+	private int arret;
 	
 	public Autobus(int assis, int debout){
 		this.assis = new JaugeNaturel(0,assis,0);
 		this.debout = new JaugeNaturel(0,debout,0);
+		this.setArret(0);
 	}
 	@Override
 	public boolean aPlaceAssise() {
@@ -85,6 +87,15 @@ public class Autobus implements Bus{
 		return debout;
 	}
 
-
+	public String toString(){
+		String monBus ="";
+		return monBus;
+	}
+	public int getArret() {
+		return arret;
+	}
+	public void setArret(int arret) {
+		this.arret = arret;
+	}
 
 }
