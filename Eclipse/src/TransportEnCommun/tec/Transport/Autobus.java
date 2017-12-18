@@ -89,7 +89,7 @@ public class Autobus implements Bus{
 	}
 
 	public JaugeNaturel getDebout() {
-		return debout;
+		return this.debout;
 	}
 
 	public String toString(){
