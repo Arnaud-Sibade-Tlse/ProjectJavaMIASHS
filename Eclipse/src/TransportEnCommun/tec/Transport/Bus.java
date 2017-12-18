@@ -68,5 +68,7 @@ public interface Bus extends Transport{
    * @param p le passager avec un état soit assis soit debout.
    */
   public void demanderSortie(Passager p);
+  
+  public int getArret();
 }
 

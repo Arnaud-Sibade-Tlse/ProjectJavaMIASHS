@@ -77,8 +77,10 @@ public class PassagerStandard implements Passager{
 
 	@Override
 	public void nouvelArret(Bus bus, int numeroArret) {
-		// TODO Auto-generated method stub
-		
+		if(this.getDestination()==bus.getArret()){
+			bus.demanderSortie(this);
+			this.accepterSortie();
+		}
 	}
 
 	public int getDestination() {
