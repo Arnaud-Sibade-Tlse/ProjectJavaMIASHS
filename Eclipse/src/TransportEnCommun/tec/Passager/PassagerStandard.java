@@ -1,6 +1,7 @@
 package TransportEnCommun.tec.Passager;
 
 
+import TransportEnCommun.tec.Passager.EtatPassager;
 import TransportEnCommun.tec.Transport.Autobus;
 import TransportEnCommun.tec.Transport.Bus;
 import TransportEnCommun.tec.Transport.Transport;
@@ -14,11 +15,11 @@ public class PassagerStandard implements Passager{
 	public PassagerStandard(String nom, int d){
 		this.nom=nom;
 		this.destination=d;
-		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEHORS);
+		setEtatPassager(IEtatPassager.Etat.DEHORS);
 	}
 	
-	public void EtatPassager(EtatPassager state) {
-		monEtat = state;
+	public void setEtatPassager(IEtatPassager.Etat state) {
+		monEtat = new EtatPassager(state);
 	}
 	
 	@Override
@@ -28,11 +29,11 @@ public class PassagerStandard implements Passager{
 			
 			if(monAutobus.aPlaceAssise()){
 				monAutobus.demanderPlaceAssise(this);
-				this.monEtat=new EtatPassager(IEtatPassager.Etat.ASSIS);
+				setEtatPassager(IEtatPassager.Etat.ASSIS);
 			}
 			else{
 				monAutobus.demanderPlaceDebout(this);
-				this.monEtat=new EtatPassager(IEtatPassager.Etat.DEBOUT);
+				setEtatPassager(IEtatPassager.Etat.DEHORS);
 			}
 		}
 	}
@@ -59,19 +60,19 @@ public class PassagerStandard implements Passager{
 
 	@Override
 	public void accepterSortie() {
-		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEHORS);
+		setEtatPassager(IEtatPassager.Etat.DEHORS);
 		
 	}
 
 	@Override
 	public void accepterPlaceAssise() {
-		this.monEtat=new EtatPassager(IEtatPassager.Etat.ASSIS);
+		setEtatPassager(IEtatPassager.Etat.ASSIS);
 		
 	}
 
 	@Override
 	public void accepterPlaceDebout() {
-		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEBOUT);
+		setEtatPassager(IEtatPassager.Etat.DEBOUT);
 	}
 
 
