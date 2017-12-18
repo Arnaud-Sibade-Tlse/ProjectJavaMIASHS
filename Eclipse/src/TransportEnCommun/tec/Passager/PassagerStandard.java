@@ -1,6 +1,6 @@
 package TransportEnCommun.tec.Passager;
 
-import TransportEnCommun.tec.Passager.IEtatPassager.Etat;
+import TransportEnCommun.tec.Transport.Autobus;
 import TransportEnCommun.tec.Transport.Bus;
 import TransportEnCommun.tec.Transport.Transport;
 
@@ -13,16 +13,28 @@ public class PassagerStandard implements Passager{
 	public PassagerStandard(String nom, int d){
 		this.nom=nom;
 		this.destination=d;
+		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEHORS);
 	}
 	
-	public void EtatPassager(EtatPassager assis) {
-		monEtat = assis;
+	public void EtatPassager(EtatPassager state) {
+		monEtat = state;
 	}
 	
 	@Override
 	public void monterDans(Transport t) throws UsagerInvalideException {
 		// TODO Auto-generated method stub
-		
+		if(t instanceof Autobus){
+			Autobus monAutobus = (Autobus) t;
+			
+			if(monAutobus.aPlaceAssise()){
+				monAutobus.demanderPlaceAssise(this);
+				this.monEtat=new EtatPassager(IEtatPassager.Etat.ASSIS);
+			}
+			else{
+				monAutobus.demanderPlaceDebout(this);
+				this.monEtat=new EtatPassager(IEtatPassager.Etat.DEBOUT);
+			}
+		}
 	}
 
 	@Override
@@ -77,4 +89,7 @@ public class PassagerStandard implements Passager{
 		this.destination = destination;
 	}
 
+	public String toString(){
+		return this.nom +" "+this.monEtat;
+	}
 }
