@@ -12,7 +12,7 @@ public class Autobus implements Bus{
 	public Autobus(int assis, int debout){
 		this.assis = new JaugeNaturel(0,assis,0);
 		this.debout = new JaugeNaturel(0,debout,0);
-		this.setArret(0);
+		this.arret=0;
 	}
 	@Override
 	public boolean aPlaceAssise() {
@@ -73,12 +73,6 @@ public class Autobus implements Bus{
 		}
 	}
 
-	@Override
-	public void allerArretSuivant() throws UsagerInvalideException {
-		// TODO Auto-generated method stub
-		
-	}
-
 	public JaugeNaturel getAssis() {
 		return assis;
 	}
@@ -88,15 +82,18 @@ public class Autobus implements Bus{
 	}
 
 	public String toString(){
-		String monBus ="[";
-		
+		String monBus ="[arret:";
+		monBus += arret;
+		monBus+=", assis:"+(int)this.assis.getValeur()+", debout:"+(int)this.debout.getValeur()+"]";
 		return monBus;
 	}
 	public int getArret() {
 		return arret;
 	}
-	public void setArret(int arret) {
-		this.arret = arret;
+	
+	@Override
+	public void allerArretSuivant() {
+		this.arret ++;
 	}
 
 }
