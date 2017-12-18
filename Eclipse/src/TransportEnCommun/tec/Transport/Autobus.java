@@ -70,7 +70,9 @@ public class Autobus implements Bus{
 			assis.decrementer();
 		} else {
 			debout.decrementer();
+			
 		}
+		p.accepterSortie();
 	}
 
 	public JaugeNaturel getAssis() {
