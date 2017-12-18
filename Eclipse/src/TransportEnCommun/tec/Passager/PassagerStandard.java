@@ -22,7 +22,6 @@ public class PassagerStandard implements Passager{
 	
 	@Override
 	public void monterDans(Transport t) throws UsagerInvalideException {
-		// TODO Auto-generated method stub
 		if(t instanceof Autobus){
 			Autobus monAutobus = (Autobus) t;
 			
@@ -59,19 +58,19 @@ public class PassagerStandard implements Passager{
 
 	@Override
 	public void accepterSortie() {
-		// TODO Auto-generated method stub
+		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEHORS);
 		
 	}
 
 	@Override
 	public void accepterPlaceAssise() {
-		// TODO Auto-generated method stub
+		this.monEtat=new EtatPassager(IEtatPassager.Etat.ASSIS);
 		
 	}
 
 	@Override
 	public void accepterPlaceDebout() {
-		// TODO Auto-generated method stub
+		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEBOUT);
 		
 	}
 
