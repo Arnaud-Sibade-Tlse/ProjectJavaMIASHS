@@ -1,8 +1,9 @@
 package TransportEnCommun.usageDeFaux;
 
 import TransportEnCommun.tec.Passager.Passager;
+import TransportEnCommun.tec.Transport.Transport;
 
-public class FauxBusDebout {
+public class FauxBusDebout  implements Transport{
   String message = "???";
 
   boolean aPlaceAssise() {

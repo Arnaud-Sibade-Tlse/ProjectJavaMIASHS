@@ -32,7 +32,7 @@ public class EtatPassager implements IEtatPassager{
    * @return vrai si instanciation avec DEHORS;
    */
   public boolean estExterieur() {
-    return monEtat == Etat.DEHORS;
+    return monEtat == IEtatPassager.Etat.DEHORS;
   }
 
   /**
@@ -41,7 +41,7 @@ public class EtatPassager implements IEtatPassager{
    * @return vrai si instanciation avec ASSIS;
    */
   public boolean estAssis() {
-    return monEtat == Etat.ASSIS;
+    return monEtat == IEtatPassager.Etat.ASSIS;
   }
 
   /**
@@ -50,7 +50,7 @@ public class EtatPassager implements IEtatPassager{
    * @return vrai si instanciation avec DEBOUT;
    */
   public boolean estDebout() {
-    return monEtat == Etat.DEBOUT;
+    return monEtat == IEtatPassager.Etat.DEBOUT;
   }
 
   /**
@@ -59,7 +59,7 @@ public class EtatPassager implements IEtatPassager{
    * @return vrai si instanciation avec ASSIS ou DEBOUT.
    */
   public boolean estInterieur() {
-    return monEtat == Etat.ASSIS || monEtat == Etat.DEBOUT;
+    return monEtat == IEtatPassager.Etat.ASSIS || monEtat == IEtatPassager.Etat.DEBOUT;
   }
 
 
