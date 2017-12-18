@@ -23,7 +23,6 @@ public class PassagerStandard implements Passager{
 	public void monterDans(Transport t) throws UsagerInvalideException {
 		if(t instanceof Autobus){
 			Autobus monAutobus = (Autobus) t;
-			
 			if(monAutobus.aPlaceAssise()){
 				monAutobus.demanderPlaceAssise(this);
 			}
@@ -56,13 +55,11 @@ public class PassagerStandard implements Passager{
 	@Override
 	public void accepterSortie() {
 		monEtat = new EtatPassager(IEtatPassager.Etat.DEHORS);
-		
 	}
 
 	@Override
 	public void accepterPlaceAssise() {
 		monEtat = new EtatPassager(IEtatPassager.Etat.ASSIS);
-		
 	}
 
 	@Override

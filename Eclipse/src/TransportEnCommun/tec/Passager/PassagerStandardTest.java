@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import TransportEnCommun.tec.Transport.Autobus;
 import TransportEnCommun.usageDeFaux.FauxBusAssis;
 import TransportEnCommun.usageDeFaux.FauxBusDebout;
 import TransportEnCommun.usageDeFaux.FauxBusPlein;
@@ -23,6 +24,8 @@ public class PassagerStandardTest {
 		assertTrue("Dehors",monP.estDehors());
 		assertFalse("pas Assis",monP.estAssis());
 		assertFalse("pas Debout",monP.estDebout());
+		monP.accepterSortie();
+		assertTrue("Dehors",monP.estDehors());
 	}
 	
 	@Test
@@ -46,22 +49,34 @@ public class PassagerStandardTest {
 	@Test
 	public void testMonterDansVide(){
 		monP = creerPassager();
-		FauxBusVide monBusVide = new FauxBusVide();
+		Autobus monBusVide = new Autobus(2,2);
 		try {
 			monP.monterDans(monBusVide);
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
 		}
-		System.out.println(monP.getEtat());
 		assertTrue("Assis",monP.estAssis());
+		assertFalse("Pas dehors",monP.estDehors());
+		assertFalse("Pas debout",monP.estDebout());
 	}
 	
 	@Test
 	public void testMonterDansPlein(){
 		monP = creerPassager();
-		FauxBusPlein monBusPlein = new FauxBusPlein();
+		PassagerStandard random1 = new PassagerStandard("random1",2);
+		PassagerStandard random2 = new PassagerStandard("random2",2);
+		PassagerStandard random3 = new PassagerStandard("random3",2);
+		PassagerStandard random4 = new PassagerStandard("random4",2);
+
+		Autobus monBusPlein = new Autobus(2,2);
+		
 		try {
+			random1.monterDans(monBusPlein);
+			random2.monterDans(monBusPlein);
+			random3.monterDans(monBusPlein);
+			random4.monterDans(monBusPlein);
 			monP.monterDans(monBusPlein);
+			
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
 		}
@@ -73,8 +88,10 @@ public class PassagerStandardTest {
 	@Test
 	public void testMonterAssis(){
 		monP = creerPassager();
-		FauxBusAssis monBusAssis = new FauxBusAssis();
+		Autobus monBusAssis = new Autobus(2,2);
+		PassagerStandard random1 = new PassagerStandard("random1",2);
 		try {
+			random1.monterDans(monBusAssis);
 			monP.monterDans(monBusAssis);
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
@@ -87,8 +104,12 @@ public class PassagerStandardTest {
 	@Test
 	public void testMonterDebout(){
 		monP = creerPassager();
-		FauxBusDebout monBusDebout = new FauxBusDebout();
+		Autobus monBusDebout = new Autobus(2,2);
+		PassagerStandard random1 = new PassagerStandard("random1",2);
+		PassagerStandard random2 = new PassagerStandard("random2",2);
 		try {
+			random1.monterDans(monBusDebout);
+			random2.monterDans(monBusDebout);
 			monP.monterDans(monBusDebout);
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
@@ -98,6 +119,22 @@ public class PassagerStandardTest {
 		assertTrue("Debout",monP.estDebout());
 	}
 	
+	@Test
+	public void testNouvelArrêt(){
+		monP = creerPassager();
+		Autobus monBus= new Autobus(2,2);
+		
+	}
+	
+	
+	@Test
+	public void testDestination(){
+		monP = creerPassager();
+		assertEquals(3,monP.getDestination());
+		
+		monP.setDestination(2);
+		assertEquals(2,monP.getDestination());
+	}
 	
 	@Test
 	public void testToString(){

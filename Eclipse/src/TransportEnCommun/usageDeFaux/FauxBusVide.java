@@ -5,7 +5,7 @@ import TransportEnCommun.tec.Transport.Transport;
 public class FauxBusVide implements Transport {
   String message = "???";
 
-  boolean aPlaceAssise() {
+   boolean aPlaceAssise() {
     return true;
   }
 
