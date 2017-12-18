@@ -26,11 +26,9 @@ public class PassagerStandard implements Passager{
 			
 			if(monAutobus.aPlaceAssise()){
 				monAutobus.demanderPlaceAssise(this);
-				accepterPlaceAssise();
 			}
 			else{
 				monAutobus.demanderPlaceDebout(this);
-				accepterPlaceDebout();
 			}
 		}
 	}
@@ -91,5 +89,10 @@ public class PassagerStandard implements Passager{
 
 	public String toString(){
 		return this.nom +" "+this.monEtat;
+	}
+
+
+	public String getEtat() {
+		return this.monEtat.toString();
 	}
 }
