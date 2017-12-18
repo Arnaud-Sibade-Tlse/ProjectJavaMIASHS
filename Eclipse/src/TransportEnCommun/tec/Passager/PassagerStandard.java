@@ -71,15 +71,12 @@ public class PassagerStandard implements Passager{
 	@Override
 	public void accepterPlaceDebout() {
 		this.monEtat=new EtatPassager(IEtatPassager.Etat.DEBOUT);
-		
 	}
 
 	@Override
 	public void nouvelArret(Bus bus, int numeroArret) {
-		if(this.getDestination()==bus.getArret()){
-			bus.demanderSortie(this);
-			this.accepterSortie();
-		}
+		// TODO Auto-generated method stub
+		
 	}
 
 	public int getDestination() {
