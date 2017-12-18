@@ -88,7 +88,8 @@ public class Autobus implements Bus{
 	}
 
 	public String toString(){
-		String monBus ="";
+		String monBus ="[";
+		
 		return monBus;
 	}
 	public int getArret() {
