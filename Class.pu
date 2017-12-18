@@ -1,0 +1,151 @@
+@startuml
+class Simple [[java:TransportEnCommun.Simple]] {
+	-{static}void deboguerEtat(Transport t, Usager p)
+	+{static}void main(String[] args)
+}
+
+class EtatPassager [[java:TransportEnCommun.tec.Passager.EtatPassager]] {
+	-IEtatPassager.Etat monEtat
+	+EtatPassager(Etat assis)
+	+boolean estExterieur()
+	+boolean estAssis()
+	+boolean estDebout()
+	+boolean estInterieur()
+	+String toString()
+}
+interface IEtatPassager [[java:TransportEnCommun.tec.Passager.IEtatPassager]] {
+}
+
+interface IEtatPassager [[java:TransportEnCommun.tec.Passager.IEtatPassager]] {
+	boolean estExterieur()
+	boolean estAssis()
+	boolean estDebout()
+	boolean estInterieur()
+}
+
+interface Passager [[java:TransportEnCommun.tec.Passager.Passager]] {
+	String nom()
+	boolean estDehors()
+	boolean estAssis()
+	boolean estDebout()
+	void accepterSortie()
+	void accepterPlaceAssise()
+	void accepterPlaceDebout()
+	void nouvelArret(Bus bus, int numeroArret)
+}
+interface Usager [[java:TransportEnCommun.tec.Passager.Usager]] {
+}
+
+class PassagerStandard [[java:TransportEnCommun.tec.Passager.PassagerStandard]] {
+	-String nom
+	-EtatPassager monEtat
+	-int destination
+	+PassagerStandard(String nom, int d)
+	+void monterDans(Transport t)
+	+String nom()
+	+boolean estDehors()
+	+boolean estAssis()
+	+boolean estDebout()
+	+void accepterSortie()
+	+void accepterPlaceAssise()
+	+void accepterPlaceDebout()
+	+void nouvelArret(Bus bus, int numeroArret)
+	+int getDestination()
+	+void setDestination(int destination)
+	+String toString()
+}
+interface Passager [[java:TransportEnCommun.tec.Passager.Passager]] {
+}
+interface Usager [[java:TransportEnCommun.tec.Passager.Usager]] {
+	String nom()
+	void monterDans(Transport t)
+}
+class UsagerInvalideException [[java:TransportEnCommun.tec.Passager.UsagerInvalideException]] {
+	+Usager quelUsager
+	+Transport quelTransport
+	~UsagerInvalideException(String message)
+	~UsagerInvalideException(String message, Usager u, Transport t)
+}
+class Exception [[java:java.lang.Exception]] {
+}
+
+class Autobus [[java:TransportEnCommun.tec.Transport.Autobus]] {
+	-JaugeNaturel assis
+	-JaugeNaturel debout
+	-int arret
+	-ArrayList<PassagerStandard> mesPassagers
+	+Autobus(int assis, int debout)
+	+boolean aPlaceAssise()
+	+boolean aPlaceDebout()
+	+void demanderPlaceAssise(Passager p)
+	+void demanderPlaceDebout(Passager p)
+	+void demanderChangerEnDebout(Passager p)
+	+void demanderChangerEnAssis(Passager p)
+	+void demanderSortie(Passager p)
+	+JaugeNaturel getAssis()
+	+JaugeNaturel getDebout()
+	+String toString()
+	+int getArret()
+	+void allerArretSuivant()
+}
+interface Bus [[java:TransportEnCommun.tec.Transport.Bus]] {
+}
+
+interface Bus [[java:TransportEnCommun.tec.Transport.Bus]] {
+	boolean aPlaceAssise()
+	boolean aPlaceDebout()
+	void demanderPlaceAssise(Passager p)
+	void demanderPlaceDebout(Passager p)
+	void demanderChangerEnDebout(Passager p)
+	void demanderChangerEnAssis(Passager p)
+	void demanderSortie(Passager p)
+	int getArret()
+}
+interface Transport [[java:TransportEnCommun.tec.Transport.Transport]] {
+}
+
+interface IJauge [[java:TransportEnCommun.tec.Transport.IJauge]] {
+	boolean estRouge()
+	boolean estVert()
+	boolean estBleu()
+	void incrementer()
+	void decrementer()
+	float getValeur()
+	float getMin()
+	float getMax()
+}
+
+class JaugeNaturel [[java:TransportEnCommun.tec.Transport.JaugeNaturel]] {
+	-long valeur
+	-long min
+	-long max
+	+JaugeNaturel(float vigieMin, float vigieMax, float depart)
+	+boolean estRouge()
+	+boolean estVert()
+	+boolean estBleu()
+	+void incrementer()
+	+void decrementer()
+	+String toString()
+	+float getValeur()
+	+float getMin()
+	+float getMax()
+}
+interface IJauge [[java:JaugeNaturel.IJauge]] {
+}
+
+interface Transport [[java:TransportEnCommun.tec.Transport.Transport]] {
+	void allerArretSuivant()
+}
+
+Exception <|-- UsagerInvalideException
+IEtatPassager <|.. EtatPassager
+Passager <|.. PassagerStandard
+Usager <|-- Passager
+Bus <|.. Autobus
+Transport <|-- Bus
+IJauge <|.. JaugeNaturel
+Usager -- UsagerInvalideException
+EtatPassager --> PassagerStandard
+Autobus <-- JaugeNaturel
+
+@enduml
