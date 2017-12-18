@@ -123,7 +123,22 @@ public class PassagerStandardTest {
 	public void testNouvelArrêt(){
 		monP = creerPassager();
 		Autobus monBus= new Autobus(2,2);
+		try {
+			monP.monterDans(monBus);
+		} catch (UsagerInvalideException e) {
+			e.printStackTrace();
+		}
 		
+		int arretSortis = 0;
+		for(int i=1;i<5;i++){
+			monBus.allerArretSuivant();
+			monP.nouvelArret(monBus,i);
+			if(monP.estDehors()){
+				arretSortis = i;
+				break;
+			}
+		}
+		assertEquals(3,arretSortis);
 	}
 	
 	
