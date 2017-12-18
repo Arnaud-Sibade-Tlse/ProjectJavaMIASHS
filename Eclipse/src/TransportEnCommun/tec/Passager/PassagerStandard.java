@@ -15,12 +15,9 @@ public class PassagerStandard implements Passager{
 	public PassagerStandard(String nom, int d){
 		this.nom=nom;
 		this.destination=d;
-		setEtatPassager(IEtatPassager.Etat.DEHORS);
+		monEtat = new EtatPassager(IEtatPassager.Etat.DEHORS);
 	}
-	
-	public void setEtatPassager(IEtatPassager.Etat state) {
-		monEtat = new EtatPassager(state);
-	}
+
 	
 	@Override
 	public void monterDans(Transport t) throws UsagerInvalideException {
@@ -29,11 +26,11 @@ public class PassagerStandard implements Passager{
 			
 			if(monAutobus.aPlaceAssise()){
 				monAutobus.demanderPlaceAssise(this);
-				setEtatPassager(IEtatPassager.Etat.ASSIS);
+				accepterPlaceAssise();
 			}
 			else{
 				monAutobus.demanderPlaceDebout(this);
-				setEtatPassager(IEtatPassager.Etat.DEHORS);
+				accepterPlaceDebout();
 			}
 		}
 	}
@@ -60,19 +57,19 @@ public class PassagerStandard implements Passager{
 
 	@Override
 	public void accepterSortie() {
-		setEtatPassager(IEtatPassager.Etat.DEHORS);
+		monEtat = new EtatPassager(IEtatPassager.Etat.DEHORS);
 		
 	}
 
 	@Override
 	public void accepterPlaceAssise() {
-		setEtatPassager(IEtatPassager.Etat.ASSIS);
+		monEtat = new EtatPassager(IEtatPassager.Etat.ASSIS);
 		
 	}
 
 	@Override
 	public void accepterPlaceDebout() {
-		setEtatPassager(IEtatPassager.Etat.DEBOUT);
+		monEtat = new EtatPassager(IEtatPassager.Etat.DEBOUT);
 	}
 
 
