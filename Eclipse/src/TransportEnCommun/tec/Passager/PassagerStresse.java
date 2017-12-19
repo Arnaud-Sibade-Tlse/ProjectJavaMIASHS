@@ -6,18 +6,31 @@ public class PassagerStresse extends PassagerAbstract{
 
 	public PassagerStresse(String nom, int d) {
 		super(nom, d);
-		// TODO Auto-generated constructor stub
 	}
 	
 	@Override
 	public void choixPlaceMontee(Bus bus) {
-		// TODO Auto-generated method stub
-		
+		if(bus.aPlaceAssise() && bus.aPlaceDebout()){
+			bus.demanderPlaceAssise(this);
+		}
 	}
 
 	@Override
 	public void choixChangerPlace(Bus bus, int numeroArret) {
-		// TODO Auto-generated method stub
+		if(this.getDestination()==bus.getArret()){
+			bus.demanderSortie(this);
+			this.accepterSortie();
+		}else{
+			if(numeroArret == this.getDestination()-3 && bus.aPlaceDebout()){
+				bus.demanderChangerEnDebout(this);
+			}else{
+				try {
+					throw new UsagerInvalideException("Usager stresser n'as pas pu se lever 3 arret avant ca destination est a fait sauter le Bus");
+				} catch (UsagerInvalideException e) {
+					e.printStackTrace();
+				}
+			}
+		}
 		
 	}
 
