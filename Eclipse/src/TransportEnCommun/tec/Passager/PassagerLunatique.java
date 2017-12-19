@@ -11,13 +11,42 @@ public class PassagerLunatique extends PassagerAbstract{
 
 	@Override
 	public void choixPlaceMontee(Bus bus) {
-		// TODO Auto-generated method stub
-		
+		if(bus.aPlaceDebout()){
+			bus.demanderPlaceDebout(this);
+		}
 	}
 
 	@Override
 	public void choixChangerPlace(Bus bus, int numeroArret) {
-		// TODO Auto-generated method stub
-		
+		if(this.getDestination()==bus.getArret()){
+			bus.demanderSortie(this);
+			this.accepterSortie();
+		}
+		else{
+			if(estAssis()){
+				if(bus.aPlaceDebout()){
+					bus.demanderChangerEnDebout(this);
+				}
+				else{
+					try {
+						throw new UsagerInvalideException("Usager Lunatique n'as pas pu se lever");
+					} catch (UsagerInvalideException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+			else{
+				if(bus.aPlaceAssise()){
+					bus.demanderChangerEnAssis(this);
+				}
+				else{
+					try {
+						throw new UsagerInvalideException("Usager Lunatique n'as pas pu s'assoir");
+					} catch (UsagerInvalideException e) {
+						e.printStackTrace();
+					}
+				}
+			}
+		}
 	}
 }

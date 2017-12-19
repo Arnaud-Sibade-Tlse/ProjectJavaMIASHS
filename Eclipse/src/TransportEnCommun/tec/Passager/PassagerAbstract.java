@@ -24,7 +24,7 @@ public abstract class PassagerAbstract implements Passager {
 		}
 	}
 
-	public abstract void choixPlaceMontee(Bus bus);
+	public abstract void choixPlaceMontee(Bus bus) throws UsagerInvalideException;
 	
 	@Override
 	public String nom() {
