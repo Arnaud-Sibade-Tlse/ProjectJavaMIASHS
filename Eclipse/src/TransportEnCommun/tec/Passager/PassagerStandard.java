@@ -1,8 +1,6 @@
 package TransportEnCommun.tec.Passager;
 
-import TransportEnCommun.tec.Transport.Autobus;
 import TransportEnCommun.tec.Transport.Bus;
-import TransportEnCommun.tec.Transport.Transport;
 
 public class PassagerStandard extends PassagerAbstract{
 	
@@ -11,23 +9,20 @@ public class PassagerStandard extends PassagerAbstract{
 	}
 	
 	@Override
-	public void nouvelArret(Bus bus, int numeroArret) {
+	public void choixChangerPlace(Bus bus, int numeroArret) {
 		if(this.getDestination()==bus.getArret()){
 			bus.demanderSortie(this);
 			this.accepterSortie();
 		}
 	}
 	
-	@Override
-	public void monterDans(Transport t) throws UsagerInvalideException {
-		if(t instanceof Autobus){
-			Autobus monAutobus = (Autobus) t;
-			if(monAutobus.aPlaceAssise()){
-				monAutobus.demanderPlaceAssise(this);
-			}
-			else{
-				monAutobus.demanderPlaceDebout(this);
-			}
+	@Override 
+	public void choixPlaceMontee(Bus bus){
+		if(bus.aPlaceAssise()){
+			bus.demanderPlaceAssise(this);
+		}
+		else{
+			bus.demanderPlaceDebout(this);
 		}
 	}
 }

@@ -1,7 +1,6 @@
 package TransportEnCommun.tec.Passager;
 
 import TransportEnCommun.tec.Transport.Bus;
-import TransportEnCommun.tec.Transport.Transport;
 
 public class PassagerLunatique extends PassagerAbstract{
 
@@ -11,15 +10,14 @@ public class PassagerLunatique extends PassagerAbstract{
 	}
 
 	@Override
-	public void monterDans(Transport t) throws UsagerInvalideException {
+	public void choixPlaceMontee(Bus bus) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void nouvelArret(Bus bus, int numeroArret) {
+	public void choixChangerPlace(Bus bus, int numeroArret) {
 		// TODO Auto-generated method stub
 		
 	}
-
 }

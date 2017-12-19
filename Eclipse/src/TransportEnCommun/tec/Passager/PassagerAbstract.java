@@ -16,10 +16,16 @@ public abstract class PassagerAbstract implements Passager {
 		monEtat = new EtatPassager(IEtatPassager.Etat.DEHORS);
 	}
 
-	
 	@Override
-	public abstract void monterDans(Transport t) throws UsagerInvalideException;
+	public void monterDans(Transport t) throws UsagerInvalideException {
+		if(t instanceof Autobus){
+			Autobus monAutobus = (Autobus) t;
+			choixPlaceMontee(monAutobus);
+		}
+	}
 
+	public abstract void choixPlaceMontee(Bus bus);
+	
 	@Override
 	public String nom() {
 		return this.nom;
@@ -57,7 +63,11 @@ public abstract class PassagerAbstract implements Passager {
 
 
 	@Override
-	public abstract void nouvelArret(Bus bus, int numeroArret);
+	public void nouvelArret(Bus bus, int numeroArret){
+		choixChangerPlace(bus,numeroArret);
+	}
+
+	public abstract void choixChangerPlace(Bus bus, int numeroArret);
 
 	public int getDestination() {
 		return destination;
