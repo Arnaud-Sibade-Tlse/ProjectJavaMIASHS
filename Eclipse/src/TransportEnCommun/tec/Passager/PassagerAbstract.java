@@ -18,17 +18,7 @@ public abstract class PassagerAbstract implements Passager {
 
 	
 	@Override
-	public void monterDans(Transport t) throws UsagerInvalideException {
-		if(t instanceof Autobus){
-			Autobus monAutobus = (Autobus) t;
-			if(monAutobus.aPlaceAssise()){
-				monAutobus.demanderPlaceAssise(this);
-			}
-			else{
-				monAutobus.demanderPlaceDebout(this);
-			}
-		}
-	}
+	public abstract void monterDans(Transport t) throws UsagerInvalideException;
 
 	@Override
 	public String nom() {
@@ -67,12 +57,7 @@ public abstract class PassagerAbstract implements Passager {
 
 
 	@Override
-	public void nouvelArret(Bus bus, int numeroArret) {
-		if(this.getDestination()==bus.getArret()){
-			bus.demanderSortie(this);
-			this.accepterSortie();
-		}
-	}
+	public abstract void nouvelArret(Bus bus, int numeroArret);
 
 	public int getDestination() {
 		return destination;
