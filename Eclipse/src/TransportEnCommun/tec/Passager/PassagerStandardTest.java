@@ -120,7 +120,7 @@ public class PassagerStandardTest {
 	}
 	
 	@Test
-	public void testNouvelArrêt(){
+	public void testNouvelArret(){
 		monP = creerPassager();
 		Autobus monBus= new Autobus(2,2);
 		try {
