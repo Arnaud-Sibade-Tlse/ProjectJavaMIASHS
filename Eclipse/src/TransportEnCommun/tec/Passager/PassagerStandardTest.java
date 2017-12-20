@@ -15,7 +15,7 @@ public class PassagerStandardTest extends PassagerAbstractTest {
 	PassagerStandard monP;
 	
 	public PassagerStandard creerPassager(){
-		return new PassagerStandard("Test",3);
+		return new PassagerStandard("Test",4);
 	}
 
 	@Test
