@@ -3,7 +3,8 @@ package TransportEnCommun.tec.Transport;
 import java.util.ArrayList;
 
 import TransportEnCommun.tec.Passager.Passager;
-import TransportEnCommun.tec.Passager.PassagerStandard;
+import TransportEnCommun.tec.Passager.PassagerAbstract;
+import TransportEnCommun.tec.Passager.PassagerAbstract;
 import TransportEnCommun.tec.Passager.UsagerInvalideException;
 
 public class Autobus implements Bus{
@@ -11,13 +12,13 @@ public class Autobus implements Bus{
 	private JaugeNaturel assis;
 	private JaugeNaturel debout;
 	private int arret;
-	private ArrayList<PassagerStandard> mesPassagers;
+	private ArrayList<PassagerAbstract> mesPassagers;
 
 	
 	public Autobus(int assis, int debout){
 		this.assis = new JaugeNaturel(0,assis,0);
 		this.debout = new JaugeNaturel(0,debout,0);
-		mesPassagers = new ArrayList<PassagerStandard>();
+		mesPassagers = new ArrayList<PassagerAbstract>();
 		this.arret=0;
 	}
 	@Override
@@ -40,7 +41,7 @@ public class Autobus implements Bus{
 	public void demanderPlaceAssise(Passager p) {
 		if(aPlaceAssise()){
 			p.accepterPlaceAssise();
-			mesPassagers.add((PassagerStandard)p);
+			mesPassagers.add((PassagerAbstract)p);
 			assis.incrementer();
 		}
 	}
@@ -49,7 +50,7 @@ public class Autobus implements Bus{
 	public void demanderPlaceDebout(Passager p) {
 		if(aPlaceDebout()){
 			p.accepterPlaceDebout();
-			mesPassagers.add((PassagerStandard)p);
+			mesPassagers.add((PassagerAbstract)p);
 
 			debout.incrementer();
 		}

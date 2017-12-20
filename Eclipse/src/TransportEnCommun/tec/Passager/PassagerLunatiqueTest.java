@@ -12,10 +12,10 @@ import TransportEnCommun.usageDeFaux.FauxBusVide;
 
 public class PassagerLunatiqueTest extends PassagerAbstractTest {
 
-	PassagerStandard monP;
+	PassagerLunatique monP;
 	
-	public PassagerStandard creerPassager(){
-		return new PassagerStandard("Test",3);
+	public PassagerLunatique creerPassager(){
+		return new PassagerLunatique("Test",3);
 	}
 
 	@Test
@@ -27,9 +27,9 @@ public class PassagerLunatiqueTest extends PassagerAbstractTest {
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
 		}
-		assertTrue("Assis",monP.estAssis());
+		assertFalse("Pas assis",monP.estAssis());
 		assertFalse("Pas dehors",monP.estDehors());
-		assertFalse("Pas debout",monP.estDebout());
+		assertTrue("Debout",monP.estDebout());
 	}
 	
 	@Test
@@ -68,9 +68,9 @@ public class PassagerLunatiqueTest extends PassagerAbstractTest {
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
 		}
-		assertTrue("Assis",monP.estAssis());
+		assertFalse("Pas assis",monP.estAssis());
 		assertFalse("Pas dehors",monP.estDehors());
-		assertFalse("Pas debout",monP.estDebout());
+		assertTrue("Debout",monP.estDebout());
 	}
 	
 	@Test
