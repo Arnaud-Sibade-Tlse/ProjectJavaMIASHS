@@ -12,10 +12,10 @@ import TransportEnCommun.usageDeFaux.FauxBusVide;
 
 public class PassagerStresseTest extends PassagerAbstractTest {
 
-	PassagerStandard monP;
+	PassagerStresse monP;
 	
-	public PassagerStandard creerPassager(){
-		return new PassagerStandard("Test",3);
+	public PassagerStresse creerPassager(){
+		return new PassagerStresse("Test",4);
 	}
 
 	@Test
@@ -35,10 +35,10 @@ public class PassagerStresseTest extends PassagerAbstractTest {
 	@Test
 	public void testMonterDansPlein(){
 		monP = creerPassager();
-		PassagerStandard random1 = new PassagerStandard("random1",2);
-		PassagerStandard random2 = new PassagerStandard("random2",2);
-		PassagerStandard random3 = new PassagerStandard("random3",2);
-		PassagerStandard random4 = new PassagerStandard("random4",2);
+		PassagerStresse random1 = new PassagerStresse("random1",2);
+		PassagerStresse random2 = new PassagerStresse("random2",2);
+		PassagerStresse random3 = new PassagerStresse("random3",2);
+		PassagerStresse random4 = new PassagerStresse("random4",2);
 
 		Autobus monBusPlein = new Autobus(2,2);
 		
@@ -61,7 +61,7 @@ public class PassagerStresseTest extends PassagerAbstractTest {
 	public void testMonterAssis(){
 		monP = creerPassager();
 		Autobus monBusAssis = new Autobus(2,2);
-		PassagerStandard random1 = new PassagerStandard("random1",2);
+		PassagerStresse random1 = new PassagerStresse("random1",2);
 		try {
 			random1.monterDans(monBusAssis);
 			monP.monterDans(monBusAssis);
@@ -77,8 +77,8 @@ public class PassagerStresseTest extends PassagerAbstractTest {
 	public void testMonterDebout(){
 		monP = creerPassager();
 		Autobus monBusDebout = new Autobus(2,2);
-		PassagerStandard random1 = new PassagerStandard("random1",2);
-		PassagerStandard random2 = new PassagerStandard("random2",2);
+		PassagerStresse random1 = new PassagerStresse("random1",2);
+		PassagerStresse random2 = new PassagerStresse("random2",2);
 		try {
 			random1.monterDans(monBusDebout);
 			random2.monterDans(monBusDebout);
@@ -87,8 +87,8 @@ public class PassagerStresseTest extends PassagerAbstractTest {
 			e.printStackTrace();
 		}
 		assertFalse("Pas assis",monP.estAssis());
-		assertFalse("Pas dehors",monP.estDehors());
-		assertTrue("Debout",monP.estDebout());
+		assertTrue("Dehors",monP.estDehors());
+		assertFalse("Pas Debout",monP.estDebout());
 	}
 	
 	@Test
@@ -110,7 +110,7 @@ public class PassagerStresseTest extends PassagerAbstractTest {
 				break;
 			}
 		}
-		assertEquals(3,arretSortis);
+		assertEquals(4,arretSortis);
 	}
 	
 	

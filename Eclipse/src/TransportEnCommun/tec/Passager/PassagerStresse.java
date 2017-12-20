@@ -21,17 +21,17 @@ public class PassagerStresse extends PassagerAbstract{
 			bus.demanderSortie(this);
 			this.accepterSortie();
 		}else{
-			if(numeroArret == this.getDestination()-3 && bus.aPlaceDebout()){
+			if(numeroArret >= this.getDestination()-3 && bus.aPlaceDebout() && this.estAssis()){
 				bus.demanderChangerEnDebout(this);
 			}else{
-				try {
-					throw new UsagerInvalideException("Usager stresser n'as pas pu se lever 3 arret avant ca destination est a fait sauter le Bus");
-				} catch (UsagerInvalideException e) {
-					e.printStackTrace();
+				if(!this.estDebout()){
+					try {
+						throw new UsagerInvalideException("Usager stresser n'as pas pu se lever 3 arret avant ca destination est a fait sauter le Bus");
+					} catch (UsagerInvalideException e) {
+						e.printStackTrace();
+					}
 				}
 			}
 		}
-		
 	}
-
 }
