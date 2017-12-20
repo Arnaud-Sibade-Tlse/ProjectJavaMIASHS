@@ -110,7 +110,7 @@ public class PassagerStandardTest extends PassagerAbstractTest {
 				break;
 			}
 		}
-		assertEquals(3,arretSortis);
+		assertEquals(4,arretSortis);
 	}
 	
 	

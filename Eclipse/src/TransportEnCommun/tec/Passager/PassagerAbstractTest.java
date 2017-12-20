@@ -42,7 +42,7 @@ public abstract class PassagerAbstractTest{
 	@Test
 	public void testDestination(){
 		monP = creerPassager();
-		assertEquals(3,monP.getDestination());
+		assertEquals(4,monP.getDestination());
 		
 		monP.setDestination(2);
 		assertEquals(2,monP.getDestination());

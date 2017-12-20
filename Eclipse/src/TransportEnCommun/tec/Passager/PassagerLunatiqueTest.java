@@ -122,7 +122,7 @@ public class PassagerLunatiqueTest extends PassagerAbstractTest {
 				break;
 			}
 		}
-		assertEquals(3,arretSortis);
+		assertEquals(4,arretSortis);
 	}
 	
 	
