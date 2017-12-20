@@ -15,7 +15,7 @@ public class PassagerLunatiqueTest extends PassagerAbstractTest {
 	PassagerLunatique monP;
 	
 	public PassagerLunatique creerPassager(){
-		return new PassagerLunatique("Test",3);
+		return new PassagerLunatique("Test",4);
 	}
 
 	@Test
