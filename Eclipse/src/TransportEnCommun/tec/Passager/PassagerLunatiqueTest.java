@@ -95,16 +95,28 @@ public class PassagerLunatiqueTest extends PassagerAbstractTest {
 	public void testNouvelArret(){
 		monP = creerPassager();
 		Autobus monBus= new Autobus(2,2);
+		
+		int currentStatus = 1; // 1 = Debout ; 0 = Assis
+		
 		try {
 			monP.monterDans(monBus);
+			currentStatus = 1;
 		} catch (UsagerInvalideException e) {
 			e.printStackTrace();
 		}
 		
 		int arretSortis = 0;
+
 		for(int i=1;i<5;i++){
+			if(currentStatus == 1){
+				assertTrue("Debout",monP.estDebout());
+				currentStatus = 0;
+			}
+			else{
+				assertTrue("Assis",monP.estAssis());
+				currentStatus = 1;
+			}
 			monBus.allerArretSuivant();
-			monP.nouvelArret(monBus,i);
 			if(monP.estDehors()){
 				arretSortis = i;
 				break;
