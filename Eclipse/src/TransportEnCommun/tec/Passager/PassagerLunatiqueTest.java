@@ -10,7 +10,7 @@ import TransportEnCommun.usageDeFaux.FauxBusDebout;
 import TransportEnCommun.usageDeFaux.FauxBusPlein;
 import TransportEnCommun.usageDeFaux.FauxBusVide;
 
-public class PassagerStandardTest extends PassagerAbstractTest {
+public class PassagerLunatiqueTest extends PassagerAbstractTest {
 
 	PassagerStandard monP;
 	
