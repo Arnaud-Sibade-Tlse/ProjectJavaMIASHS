@@ -4,6 +4,30 @@ class Simple [[java:TransportEnCommun.Simple]] {
 	+{static}void main(String[] args)
 }
 
+abstract class PassagerAbstract [[java:TransportEnCommun.tec.Passager.PassagerAbstract]] {
+	-String nom
+	-EtatPassager monEtat
+	-int destination
+	+PassagerAbstract(String nom, int d)
+	+void monterDans(Transport t)
+	+{abstract}void choixPlaceMontee(Bus bus)
+	+String nom()
+	+boolean estDehors()
+	+boolean estAssis()
+	+boolean estDebout()
+	+void accepterSortie()
+	+void accepterPlaceAssise()
+	+void accepterPlaceDebout()
+	+void nouvelArret(Bus bus, int numeroArret)
+	+{abstract}void choixChangerPlace(Bus bus, int numeroArret)
+	+int getDestination()
+	+void setDestination(int destination)
+	+String toString()
+	+String getEtat()
+}
+interface Passager [[java:TransportEnCommun.tec.Passager.Passager]] {
+}
+
 class EtatPassager [[java:TransportEnCommun.tec.Passager.EtatPassager]] {
 	-IEtatPassager.Etat monEtat
 	+EtatPassager(Etat assis)
@@ -36,26 +60,7 @@ interface Passager [[java:TransportEnCommun.tec.Passager.Passager]] {
 interface Usager [[java:TransportEnCommun.tec.Passager.Usager]] {
 }
 
-class PassagerStandard [[java:TransportEnCommun.tec.Passager.PassagerStandard]] {
-	-String nom
-	-EtatPassager monEtat
-	-int destination
-	+PassagerStandard(String nom, int d)
-	+void monterDans(Transport t)
-	+String nom()
-	+boolean estDehors()
-	+boolean estAssis()
-	+boolean estDebout()
-	+void accepterSortie()
-	+void accepterPlaceAssise()
-	+void accepterPlaceDebout()
-	+void nouvelArret(Bus bus, int numeroArret)
-	+int getDestination()
-	+void setDestination(int destination)
-	+String toString()
-}
-interface Passager [[java:TransportEnCommun.tec.Passager.Passager]] {
-}
+
 interface Usager [[java:TransportEnCommun.tec.Passager.Usager]] {
 	String nom()
 	void monterDans(Transport t)
@@ -137,15 +142,44 @@ interface Transport [[java:TransportEnCommun.tec.Transport.Transport]] {
 	void allerArretSuivant()
 }
 
+class PassagerLunatique [[java:TransportEnCommun.tec.Passager.PassagerLunatique]] {
+	+PassagerLunatique(String nom, int d)
+	+void choixPlaceMontee(Bus bus)
+	+void choixChangerPlace(Bus bus, int numeroArret)
+}
+class PassagerAbstract [[java:TransportEnCommun.tec.Passager.PassagerAbstract]] {
+}
+
+class PassagerStandard [[java:TransportEnCommun.tec.Passager.PassagerStandard]] {
+	+PassagerStandard(String nom, int d)
+	+void choixChangerPlace(Bus bus, int numeroArret)
+	+void choixPlaceMontee(Bus bus)
+}
+class PassagerAbstract [[java:TransportEnCommun.tec.Passager.PassagerAbstract]] {
+}
+
+class PassagerStresse [[java:TransportEnCommun.tec.Passager.PassagerStresse]] {
+	+PassagerStresse(String nom, int d)
+	+void choixPlaceMontee(Bus bus)
+	+void choixChangerPlace(Bus bus, int numeroArret)
+}
+class PassagerAbstract [[java:TransportEnCommun.tec.Passager.PassagerAbstract]] {
+}
+
+
 Exception <|-- UsagerInvalideException
 IEtatPassager <|.. EtatPassager
-Passager <|.. PassagerStandard
 Usager <|-- Passager
 Bus <|.. Autobus
 Transport <|-- Bus
 IJauge <|.. JaugeNaturel
 Usager -- UsagerInvalideException
-EtatPassager --> PassagerStandard
+EtatPassager --> PassagerAbstract
+Passager <|.. PassagerAbstract
 Autobus <-- JaugeNaturel
+PassagerAbstract <|-- PassagerLunatique
+PassagerAbstract <|-- PassagerStandard
+PassagerAbstract <|-- PassagerStresse
+
 
 @enduml
